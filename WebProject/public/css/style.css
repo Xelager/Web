@@ -1,0 +1,208 @@
+.font-inter-500 {
+    font-family: 'Inter', sans-serif !important;
+    font-weight: 500 !important;
+    color: #828282 !important;
+}
+
+.border-login {
+    border-radius: 16px;
+    border: 1px solid #CED4DA !important;
+}
+
+.image-interest {
+  width: 30%;
+}
+
+.nav-image {
+    width: 36px;
+    height: 36px;
+    border-radius: 50%;
+    object-fit: cover;
+}
+
+.image-list {
+    width: 24px !important;
+    height: 24px !important;
+    border-radius: 50%;
+    object-fit: cover;
+}
+
+.navbar-brand-font {
+    font-family: 'Gemunu Libre', sans-serif !important;
+    font-weight: 600 !important;
+}
+
+.nav-font {
+    font-family: 'Inter', sans-serif !important;
+    font-weight: 600 !important;
+}
+
+.inter-button-text {
+    font-family: 'Inter', sans-serif !important;
+    font-size: 19px;
+    display: inline-block;
+    padding: 14px 15px 16px;
+    text-align: center;
+    font-weight: 600;
+    line-height: 1;
+    background: #DC3545;
+    color: #fff;
+    border: 2px solid #DC3545;
+    border-radius: 3px;
+    box-shadow: 0 20px 43px rgba(168, 40, 53,.35);
+    transition: all .3s ease;
+}
+
+.inter-button-text:hover {
+  background: #BB2D3B;
+  border-color: #BB2D3B;
+}
+
+.nav-color {
+    color: #828282 !important;
+}
+
+.nav-border {
+    border-radius: 8px;
+    border: 1px solid #CED4DA !important;
+}
+
+.btn-lazur {
+    color: #F2F2F2 !important;
+    background: #007fff !important;
+    padding: 8px 16px;
+    border-radius: 8px;
+}
+
+.border-nav {
+    border-bottom: 1px solid rgba(0, 0, 0, 0.125) !important;
+    border-radius: 0.25rem;
+}
+
+.border-card {
+    border-bottom: 1px solid rgba(0, 0, 0, 0.125) !important;
+    border-radius: 8px;
+    box-shadow: 0 4px 4px rgba(0, 0, 0, 0.1);
+}
+
+.btn-orange {
+    color: #F2F2F2 !important;
+    background: #ff9f00 !important;
+    padding: 8px 16px;
+    border-radius: 8px;
+}
+
+.lazur-link {
+    color: #7b61ff !important;
+}
+
+.lazur-link:hover {
+    color: #6447ff !important;
+}
+
+.btn-lazur:hover {
+    background: #0066cc !important;
+    color: white !important;
+}
+
+.btn-orange:hover {
+    background: #cc7a00 !important;
+    color: white !important;
+}
+
+.nav-color:hover {
+    color: #007fff !important;
+}
+
+.my-main {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+}
+
+.anchor {
+    position: fixed;
+    z-index: 1;
+}
+
+.margin-text {
+    margin-right: 1.5em;
+    margin-left: 15em;
+}
+
+.card-text {
+   text-indent: 40px;
+}
+
+.border-common {
+    margin-bottom: 5em;
+    margin-top: 7em;
+}
+
+.text-about {
+    font-family: 'Open Sans', sans-serif !important;
+    font-weight: 500 !important;
+    font-size: 22px !important;
+}
+
+.text-about-min {
+    font-family: 'Open Sans', sans-serif !important;
+    font-weight: 500 !important;
+    font-size: 18px;
+}
+
+.text-about-header {
+    font-family: 'Inter', sans-serif !important;
+    font-weight: 600 !important;
+}
+
+.text-center {
+    font-family: 'Open Sans', sans-serif !important;
+    font-weight: 600 !important;
+    font-size: 25px;
+}
+
+td {
+  text-align: center;
+}
+
+.img-center {
+    width: 40%;
+    border-radius: 8px;
+}
+
+footer {
+    font-family: 'Amatic SC', cursive !important;
+    left: 0;
+    bottom: 0;
+    width: 100%;
+    align-items: center;
+    height: 60px;
+    font-size: 32px;
+}
+
+.footer-contact {
+    color: #566473 !important;
+}
+
+.footer-contact:hover {
+    color: #F2F2F2 !important;
+}
+
+.btn-outline-dark:hover {
+    border: 1px solid #7B61FF !important;
+    background: white !important;
+}
+
+::-webkit-scrollbar {
+    width: 10px;
+}
+
+::-webkit-scrollbar-thumb {
+    background: #6a6a6a;
+}
+
+::-webkit-scrollbar-thumb:hover {
+    background: #0066cc;
+}
