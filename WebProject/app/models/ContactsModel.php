@@ -1,16 +1,16 @@
 <?php
 namespace app\models;
-include 'app/models/validators/ContactsValidator.php';
+use app\core\Model;
+use app\models\validators\ContactsValidator;
+
 class ContactsModel extends Model
 {
-    public $fields = [
-        "name" => "",
-        "lastName" => "",
+    public array $validated_fields = [
+        "FIO" => "",
         "gender" => "",
-        "phone" => "",
         "email" => "",
-        "dateValue" => "",
-        "age" => ""
+        "phone" => "",
+        "birthDate" => ""
     ];
 
     function __construct()
@@ -18,30 +18,17 @@ class ContactsModel extends Model
         $this->validator = new ContactsValidator();
     }
 
-    function validateForm($post_array)
+    function validateForm($post_data)
     {
-        unset($post_array["submit"]);
-        if (!empty($post_array["email"])) {
-            $this->fields["email"] = $post_array["email"];
+        unset($post_data["submit"]);
+
+        foreach ($this->validated_fields as $key => $data)
+        {
+            if (!empty($post_data[$key])) {
+                $this->validated_fields[$key] = $post_data[$key];
+            }
         }
-        if (!empty($post_array["name"])) {
-            $this->fields["name"] = $post_array["name"];
-        }
-        if (!empty($post_array["lastName"])) {
-            $this->fields["lastName"] = $post_array["lastName"];
-        }
-        if (!empty($post_array["phone"])) {
-            $this->fields["phone"] = $post_array["phone"];
-        }
-        if (!empty($post_array["dateValue"])) {
-            $this->fields["dateValue"] = $post_array["dateValue"];
-        }
-        if (!empty($post_array["gender"])) {
-            $this->fields["gender"] = $post_array["gender"];
-        }
-        if (!empty($post_array["age"])) {
-            $this->fields["age"] = $post_array["age"];
-        }
-        $this->validator->validate($this->fields);
+
+        $this->validator->validate($this->validated_fields);
     }
 }

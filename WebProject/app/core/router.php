@@ -53,7 +53,7 @@ class Router {
         }
     }
 
-    private function Error404()
+    public static function Error404()
     {
         header($_SERVER["SERVER_PROTOCOL"]." 404 Not Found", true, 404);
     }

@@ -79,12 +79,6 @@ $("#mail").tooltip();
 $("#phone").tooltip();
 });
 
-
-function phoneValidation(value) {
-  var phoneExp = /^[\+][3, 7][0-9]{8,10}$/im
-  return phoneExp.test(value)
-}
-
 function check() {
   if (validationFio && validationMail && validationPhone){
     formInput.disabled = false;

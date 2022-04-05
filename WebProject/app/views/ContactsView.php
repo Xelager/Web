@@ -58,7 +58,7 @@
     </header>
     <div class="d-flex flex-column mx-5 border-common justify-content-center" style="padding-bottom: 6em;">
         <div class="some-form">
-            <form class="form js-form-validate">
+            <form class="form js-form-validate" action="mailto:gazukin2002@mail.ru">
                 <h1 class="some-form__header title text-about-header mt-0">Мой контакт</h1>
                 <div class="some-form__line">
                     <input id="FioId" title="Пример: Иванов Иван Иванович" onblur="validationFioOnBlur()" onfocus="elementOnFocus(this)" type="text" name="FIO" placeholder="Ваше ФИО *" data-validate>
@@ -116,19 +116,8 @@
                     </div>
                 </div>
                 <div class="d-flex gap-3 some-form__submit align-items-center">
-                    <button id="formSubmit" type="button" value="Отправить" class="popup-open button button_submit button-wide" disabled>Отправить</button>
+                    <button id="formSubmit" type="button" value="Отправить" class="button button_submit button-wide" disabled>Отправить</button>
                     <button type="reset" value="reset" class="button_submit inter-button-text button-wide">Очистить поля</button>
-                </div>
-                <div class="popup-fade">
-                    <div class="popup d-flex flex-column align-items-center gap-3">
-                        <div class="text-about">
-                            <span>Вы уверены, что хотите это сделать?</span>
-                        </div>
-                        <div class="d-flex gap-3">
-                            <button id="formSubmit" type="submit" value="Отправить" class="px-3 popup-close1 button button_submit button-wide">Да</button>
-                            <button type="button" class="px-3 popup-close2 button_submit inter-button-text button-wide">Нет</button>
-                        </div>
-                    </div>
                 </div>
             </form>
         </div>

@@ -1,16 +1,17 @@
 <?php
 
 namespace app\core;
-use app\core\View;
 
 class Controller
 {
     public $route;
     public View $view;
+    public Model $model;
 
     function __construct($route)
     {
         $this->route = $route;
         $this->view = new View($route);
+        $this->model = new Model();
     }
 }

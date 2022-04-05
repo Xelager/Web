@@ -23,7 +23,7 @@ class View
         if (file_exists($path_view) && file_exists($this->path_content)) {
             require $path_view;
         } else {
-            echo 'View not found: '.$path_view;
+            Router::Error404();
         }
     }
 }
