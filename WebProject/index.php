@@ -1,9 +1,6 @@
 <?php
-
-require 'app/lib/dev.php';
-
 use app\core\Router;
-
+ini_set('display_errors', 1);
 //Автозагрузчик, заменяет \ на /
 spl_autoload_register(function($class) {
     $path = str_replace('\\', '/', $class.'.php');

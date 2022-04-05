@@ -16,7 +16,9 @@
     <script src="../../public/js/Scripts/myInterestsDropMenu.js"></script>
     <script src="../../public/js/Scripts/clock.js"></script>
     <link rel="stylesheet" href="../../public/css/background.css">
-    <title><?php echo title; ?></title>
+    <title><?php if (isset($title)) {
+            echo $title;
+        } ?></title>
 </head>
 
 <body>
@@ -26,7 +28,7 @@
             <div class="container-fluid align-content-center justify-content-center">
                 <div class="d-flex align-items-center py-2">
                     <div>
-                        <a class="navbar-brand" href="">
+                        <a class="navbar-brand" href="/">
                             <img src="../../public/img/Avatar.jpg" class="nav-image" alt="Картинка отсутствует" >
                             <span class="navbar-brand-font btn-lazur">Gazukin</span>
                         </a>

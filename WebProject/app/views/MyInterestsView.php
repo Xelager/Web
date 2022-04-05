@@ -63,9 +63,9 @@
     <div class="d-flex border-common justify-content-center">
         <div class="card text-about margin-text">
             <div class="card-body mx-3">
-                <script type="text/javascript">
-                    getInterests(myInterests);
-                </script>
+                <?php if (isset($vars)) {
+                    $vars->printMyInterests();
+                } ?>
             </div>
         </div>
     </div>

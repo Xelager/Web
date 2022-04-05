@@ -1,61 +1,110 @@
 <?php
 namespace app\models;
+use app\core\Model;
 
 class MyInterestsModel extends Model
 {
-    private $interests = [
-        [
-            "Name" => 'Любимые книги',
-            "Id" => 'AnchorBooks',
-            "Content" => 'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Convallis a cras semper auctor neque vitae tempus. Aliquam purus sit amet luctus. Sem integer vitae justo eget magna fermentum. Vel risus commodo viverra maecenas accumsan lacus vel. A condimentum vitae sapien pellentesque habitant morbi tristique senectus et. Diam in arcu cursus euismod quis viverra. Orci eu lobortis elementum nibh tellus. Lorem ipsum dolor sit amet. Turpis nunc eget lorem dolor sed viverra ipsum. Sit amet facilisis magna etiam tempor orci. Dignissim diam quis enim lobortis scelerisque fermentum.',
-            "Images" => [
-                "Id" => 'Books',
-                "Value" => [
-                    'book_Warhammer' => ["name" => 'warhammer'],
-                    'book_LOTR' => ["name" => 'LOTR'],
-                    'book_JackOfShadow' => ["name" => 'JackOfShadow'],
-                ]
-
-            ],
-        ],
-        [
-            "Name" => 'Любимые фильмы',
-            "Id" => 'AnchorFilms',
-            "Content" => 'Bibendum at varius vel pharetra. Malesuada pellentesque elit eget gravida cum sociis natoque penatibus. Morbi tristique senectus et netus et malesuada fames ac turpis. Facilisis volutpat est velit egestas. Nibh praesent tristique magna sit amet purus gravida. Sem viverra aliquet eget sit amet tellus cras adipiscing enim. Accumsan tortor posuere ac ut consequat semper.',
-            "Images" => [
-                "Id" => 'Films',
-                "Value" => [
-                    'film_Interstellar' => ["name" => 'Interstellar'],
-                    'film_Gentelmen' => ["name" => 'Gentelmen'],
-                    'film_Shrek' => ["name" => 'Shrek'],
+    private array $interests = [
+            'Мои любимые сериалы' =>
+            [
+                'content' => '<p class="card-text">Сериал расскажет о работе полицейских, «Скорой помощи» и пожарной службы. Все они выполняют свой долг, часто рискуя жизнью и попадая в самые пугающие и шокирующие ситуации. Смысл их ежедневной работы состоит в охране безопасности улиц и помощи всем, кто в ней нуждается. Полицейские, пожарные и парамедики работают бок о бок в жестких условиях большого города.Эти экстренные службы должны стараться балансировать, спасая тех, кто находится в наиболее уязвимом положении, и при этом решать проблемы в их собственной жизни.</p>
+                    <p class="card-text">Мистика, драма и комедия, гармонично переплелись в сериале« Волчонок».События разворачиваются вокруг главного героя Скотта.Мальчик был обычным подростком. В школе считался неприметным. Но все меняет его величество случай.Однажды ночью, главный герой, со своим другом Стайлсом, идут в лес на поиски мертвого тела.Стайлса замечает отец и отправляет его домой.Главному герою удается продолжить поиски.В лесу на Скотта нападает таинственный зверь, напоминающий волка. Данное таинственное существо кусает героя и убегает.</p>
+                    <p class="card-text">В Сиэтле за короткое время пропали без вести четыре молодые девушки.Возникает версия, что в городе появился серийный маньяк - убийца. За расследование этого криминального случая берется спецподразделение ФБР, специализирующееся на поведенческом анализе действий преступников.</p>',
+                'photos' => [
+                    [
+                        'id' => 'serial',
+                        'path' => '../../public/img/interests/serial1.jpg',
+                        'name' => '1. Волчонок',
+                    ],
+                    [
+                        'id' => 'serial',
+                        'path' => '../../public/img/interests/serial2.jpg',
+                        'name' => '2. Мыслить как преступник',
+                    ],
+                    [
+                        'id' => 'myHobby',
+                        'path' => '../../public/img/interests/serial3.jpg',
+                        'name' => '3. 911',
+                    ],
                 ]
             ],
-        ],
-        [
-            "Name" => 'Любимая музыка',
-            "Id" => 'AnchorMusic',
-            "Content" => 'Pretium quam vulputate dignissim suspendisse in est ante. Ipsum suspendisse ultrices gravida dictum. Etiam tempor orci eu lobortis elementum nibh tellus. Neque gravida in fermentum et sollicitudin ac orci phasellus egestas. Morbi non arcu risus quis varius quam quisque "Id" diam. Facilisi morbi tempus iaculis urna "Id" volutpat lacus. Sed sed risus pretium quam. Dignissim cras tincidunt lobortis feugiat. Ut tellus elementum sagittis vitae et. Sed turpis tincidunt "Id" aliquet risus feugiat in ante. Tortor "Id" aliquet lectus proin nibh nisl condimentum id. Morbi blandit cursus risus at ultrices mi. A diam maecenas sed enim ut sem. Mattis nunc sed blandit libero volutpat sed cras ornare. Vel pharetra vel turpis nunc eget lorem dolor. Facilisis volutpat est velit egestas dui "Id" ornare arcu odio. Commodo odio aenean sed adipiscing diam donec adipiscing tristique risus. In mollis nunc sed "Id" semper. Velit laoreet "Id" donec ultrices tincidunt. Lectus proin nibh nisl condimentum "Id" venenatis a condimentum vitae.',
-            "Images" => [
-                "Id" => 'Musics',
-                "Value" => [
-                    'musicPark' => ["name" => 'Linkin Park',],
-                    'musicSplin' => ["name" => 'Splin',],
-                    'musicTDG' => ["name" => 'TDG'],
+        'Мои хобби' =>
+            [
+                'content' => '<p class="card-text">Настольный теннис (пинг-понг) – олимпийский вид спорта, в котором два игрока или две команды по два человека (парная игра) соперничают между собой, пытаясь перекинуть ракетками специальный мяч (через сетку на игровом столе) на сторону соперника таким образом, чтобы соперник не смог его отразить. При этом мяч должен коснуться половины поля соперника не менее одного раза.</p>
+                    <p class="card-text">Бренд LEGO является сегодня самым известным в мире игрушек. Даже более известным, чем Hasbro и кукла Barbie. Но мало кто знает, что датская компания начинала свою историю, как обычный производитель деревянных изделий. А первые игрушки LEGO были и вовсе выполнены из дерева.</p>
+                    <p class="card-text">Рисование – это форма визуального искусства, в которой человек использует различные инструменты рисования для обозначения бумаги или другой двумерной среды. Инструменты включают графитовые карандаши, ручку и чернила, чернильные щетки, цветные карандаши с восковыми красками, мелки, древесный уголь, мел, пастели, различные виды ластиков, маркеры, стилусы, различные металлы (например, серебряную точку) и электронный рисунок.</p>
+                    <p class="card-text">Программи́рование — процесс создания компьютерных программ. По выражению одного из основателей языков программирования Никлауса Вирта, «Программы = алгоритмы + структуры данных»[1][2]. Программирование основывается на использовании языков программирования, на которых записываются исходные тексты программ.</p>
+                    <p class="card-text">Шахматы – настольная логическая игра для двух человек со специальными фигурами и 64-клеточным полем. Шахматы сочетающая в себе элементы искусства (в части шахматной композиции), науки и спорта. Как вид спорта, шахматы имеют иерархию званий, развитую систему регулярных турниров, национальные и международные лиги.</p>',
+                'photos' => [
+                    [
+                        'id' => 'hobby',
+                        'path' => '../../public/img/interests/hobby1.jpg',
+                        'name' => '1. Настольный теннис',
+                    ],
+                    [
+                        'id' => 'hobby',
+                        'path' => '../../public/img/interests/hobby2.jpg',
+                        'name' => '2. Собирание лего',
+                    ],
+                    [
+                        'id' => 'hobby',
+                        'path' => '../../public/img/interests/hobby3.jpg',
+                        'name' => '3. Рисование',
+                    ],
+                    [
+                        'id' => 'hobby',
+                        'path' => '../../public/img/interests/hobby4.jpg',
+                        'name' => '3. Программирование',
+                    ],
+                    [
+                        'id' => 'myBooks',
+                        'path' => '../../public/img/interests/hobby5.jpg',
+                        'name' => '3. Шахматы',
+                    ],
                 ]
             ],
-        ],
-        [
-            "Name" => 'Хобби',
-            "Id" => 'AnchorHobby',
-            "Content" => 'In aliquam sem fringilla ut. Tellus mauris a diam maecenas sed. Interdum posuere lorem ipsum dolor. Vulputate eu scelerisque felis imperdiet proin fermentum leo vel. Sem et tortor consequat "Id" porta nibh venenatis. Sem integer vitae justo eget. Felis eget velit aliquet sagittis "Id" consectetur purus ut faucibus. Mi tempus imperdiet nulla malesuada pellentesque elit. Amet porttitor eget dolor morbi non arcu risus. Tincidunt eget nullam non nisi est. Volutpat lacus laoreet non curabitur gravida arcu. Est velit egestas dui "Id" ornare arcu odio. Varius sit amet mattis vulputate. Eget nunc lobortis mattis aliquam. Egestas egestas fringilla phasellus faucibus scelerisque eleifend donec pretium vulputate. Cras fermentum odio eu feugiat pretium nibh ipsum consequat nisl. Vel quam elementum pulvinar etiam. Massa enim nec dui nunc mattis enim ut tellus elementum.',
-            "Images" => [
-                "Id" => 'Hobbies',
-                "Value" => [
-                    'book_Warhammer' => ["name" => 'warhammer',],
-                    'book_LOTR' => ["name" => 'LOTR',],
-                ]
+        'Мои любимые книги' =>
+            [
+                'content' => '<p class="card-text">В Москве 1934 года появляется Воланд - сам сатана со свитой. Его интересуют новые люди в обществе без религиозного сознания. Одни из них - Мастер и его возлюбленная Маргарита. Мастер знает пять языков и написал роман о Понтии Пилате - том самом, который отправил на смерть Иешуа...</p>
+                              <p class="card-text">100 слов в день. Такой лимит устанавливает государство для каждой женщины в США. Каждая женщина обязана носить браслет-счетчик, и, если лимит будет превышен, нарушительница получит электрический разряд. Вскоре женщин лишают права работать. Девочек перестают учить читать и писать в школах. Их место теперь - у домашнего очага, где они молчаливо должны подчиняться мужчинам. Такая же судьба ждет и доктора Джин Макклеллан, которая должна теперь оставить научную карьеру, лабораторию, важные эксперименты. Но случай заставит ее побороться за возвращение Голоса - своего, своей дочери и всех остальных женщин.</p>
+                              <p class="card-text">Уникальная книга, которая способна сделать ваши взаимоотношения с любым человеком, животным и даже самим собой гораздо лучше. Карен Прайор предлагает гениально простую и эффективную методику, которая поможет вам научить кого угодно поступать так, как вам хочется. Речь не идёт о коварных манипуляциях, гипнозе и полном подчинении воли. Речь идёт о положительном подкреплении - самом надёжном и действенном способе влиять на поведение других. Вы узнаете, как заставить супруга раз и навсегда перестать ворчать; как научить трёхлетнего ребёнка вести себя прилично; как объяснить кошке, что не надо залезать на кухонный стол; как сподвигнуть начальника регулярно повышать вам зарплату; как улучшить свои собственные результаты в любой деятельности – от занятий спортом до сочинения стихов или избавиться от вредных привычек с помощью положительного подкрепления.</p>',
+                'photos' => [
+                    [
+                        'id' => 'book',
+                        'path' => '../../public/img/interests/book1.jpg',
+                        'name' => '1. Мастер и Маргарита',
+                    ],
+                    [
+                        'id' => 'book',
+                        'path' => '../../public/img/interests/book2.jpg',
+                        'name' => '2. Голос',
+                    ],
+                    [
+                        'id' => 'myGames',
+                        'path' => '../../public/img/interests/book3.jpg',
+                        'name' => '3. Не рычите на собаку',
+                    ],
+                ],
             ],
-        ],
+                'Мои любимые игры' =>
+                    [
+                        'content' => '<p class="card-text">Сounter-Strike: Global Offensive — мультиплеерный шутер от первого лица, призванный углубить и усовершенствовать ту самую командную игровую механику «пять на пять», за которую все и полюбили Counter-Strike.</p>
+                            <p class="card-text">В состав Global Offensive входят как абсолютно новые карты, персонажи и оружие, так и классические карты вроде Dust 2 и других культовых карт, переживших небольшую перестройку. Груда оригинальных режимов игры, доска лидеров и непременные лобби для бойцов — все это тоже входит в комплект.</p>
+                            <p class="card-text">В центре сюжета новое вторжение Империи Нильфгаард, поиски Цири и конфликт с Дикой Охотой. Сюжет не делится на главы, как в предыдущих играх, что стало осуществимым благодаря новому движку.</p>
+                            <p class="card-text">В игре появляются такие персонажи как Весемир, Ламберт, Эскель, Лютик, Золтан Хивай, Трисс Меригольд, Кейра Мец, Сигизмунд Дийкстра, Вернон Роше, Лето из Гулеты, Цирилла, Йеннифер, Эмгыр вар Эмрейс и многие другие.',
+                        'photos' => [
+                            [
+                                'id' => 'game',
+                                'path' => '../../public/img/interests/game1.jpg',
+                                'name' => '1. CS : GO',
+                            ],
+                            [
+                                'id' => 'game',
+                                'path' => '../../public/img/interests/game2.jpg',
+                                'name' => '. Ведьмак 3',
+                            ]
+                        ]
+            ],
     ];
 
     function getData()

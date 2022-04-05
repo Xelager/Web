@@ -67,7 +67,7 @@
         </nav>
     </header>
     <div class="d-flex flex-column mx-5 border-common justify-content-center">
-        <script>
-            getPhotos(photos)
-        </script>
+        <?php if (isset($vars)) {
+            $vars->printPhotos();
+        } ?>
     </div>

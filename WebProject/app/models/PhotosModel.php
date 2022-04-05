@@ -2,108 +2,111 @@
 
 namespace app\models;
 
+use app\core\Model;
+
 class PhotosModel extends Model
 {
-    private $images = [
+    private array $photos = [
         [
-            "photo" => '../../assets/photos/FirstImage.jpg',
-            "title" => 'Название1',
+            "path" => '../../public/img/photos/1.jpg',
+            "title" => 'Лаванда',
             "alt" => "Альтернативный текст",
-            "comment" => "Прекрасный комментарий"
+            "description" => "Красивая природа"
         ],
         [
-            "photo" => '../../assets/photos/SecondImage.jpg',
-            "title" => 'Название2',
+            "path" => '../../public/img/photos/2.jpg',
+            "title" => 'Под ракетой',
             "alt" => "Альтернативный текст",
-            "comment" => "Прекрасный комментарий"
+            "description" => "Красивая природа"
         ],
         [
-            "photo" => '../../assets/photos/ThirdImage.jpg',
-            "title" => 'Название3',
+            "path" => '../../public/img/photos/3.jpg',
+            "title" => 'Природа',
             "alt" => "Альтернативный текст",
-            "comment" => "Прекрасный комментарий"
+            "description" => "Красивая природа"
         ],
         [
-            "photo" => '../../assets/photos/FourthImage.jpg',
-            "title" => 'Название4',
+            "path" => '../../public/img/photos/4.jpg',
+            "title" => 'Ночь',
             "alt" => "Альтернативный текст",
-            "comment" => "Прекрасный комментарий"
+            "description" => "Красивая природа"
         ],
         [
-            "photo" => '../../assets/photos/FifthImage.jpg',
-            "title" => 'Название5',
+            "path" => '../../public/img/photos/5.png',
+            "title" => 'Дракон',
             "alt" => "Альтернативный текст",
-            "comment" => "Прекрасный комментарий"
+            "description" => "Красивая природа"
         ],
         [
-            "photo" => '../../assets/photos/SixthImage.jpg',
-            "title" => 'Название6',
+            "path" => '../../public/img/photos/6.jpg',
+            "title" => 'Зелёная лошадь',
             "alt" => "Альтернативный текст",
-            "comment" => "Прекрасный комментарий"
+            "description" => "Красивая природа"
         ],
         [
-            "photo" => '../../assets/photos/SeventhImage.jpg',
-            "title" => 'Название7',
+            "path" => '../../public/img/photos/7.jpg',
+            "title" => 'Ещё один дракон',
             "alt" => "Альтернативный текст",
-            "comment" => "Прекрасный комментарий"
+            "description" => "Красивая природа"
         ],
         [
-            "photo" => '../../assets/photos/EigthsImage.jpg',
-            "title" => 'Название8',
+            "path" => '../../public/img/photos/8.jpg',
+            "title" => 'Лавовый дракон',
             "alt" => "Альтернативный текст",
-            "comment" => "Прекрасный комментарий"
+            "description" => "Красивая природа"
         ],
         [
-            "photo" => '../../assets/photos/NinethImage.jpg',
-            "title" => 'Название9',
+            "path" => '../../public/img/photos/9.jpg',
+            "title" => 'Некрополь',
             "alt" => "Альтернативный текст",
-            "comment" => "Прекрасный комментарий"
+            "description" => "Красивая природа"
         ],
         [
-            "photo" => '../../assets/photos/TenthImage.jpg',
-            "title" => 'Название10',
+            "path" => '../../public/img/photos/10.jpg',
+            "title" => 'Красивое дерево',
             "alt" => "Альтернативный текст",
-            "comment" => "Прекрасный комментарий"
+            "description" => "Красивая природа"
         ],
         [
-            "photo" => '../../assets/photos/EleventhImage.jpg',
-            "title" => 'Название11',
+            "path" => '../../public/img/photos/11.jpg',
+            "title" => 'Волна',
             "alt" => "Альтернативный текст",
-            "comment" => "Прекрасный комментарий"
+            "description" => "Красивая природа"
         ],
         [
-            "photo" => '../../assets/photos/TwelveImage.jpg',
-            "title" => 'Название12',
+            "path" => '../../public/img/photos/12.jpg',
+            "title" => 'Цветы',
             "alt" => "Альтернативный текст",
-            "comment" => "Прекрасный комментарий"
+            "description" => "Красивая природа"
         ],
         [
-            "photo" => '../../assets/photos/ThirteenImage.jpg',
-            "title" => 'Название13',
+            "path" => '../../public/img/photos/13.jpg',
+            "title" => 'Зима',
             "alt" => "Альтернативный текст",
-            "comment" => "Прекрасный комментарий"
+            "description" => "Красивая природа"
         ],
         [
-            "photo" => '../../assets/photos/FourtheenImage.jpg',
-            "title" => 'Название14',
+            "path" => '../../public/img/photos/14.jpg',
+            "title" => 'Город',
             "alt" => "Альтернативный текст",
-            "comment" => "Прекрасный комментарий"
+            "description" => "Красивая природа"
         ],
         [
-            "photo" => '../../assets/photos/FifteenthImage.jpg',
-            "title" => 'Название15',
+            "path" => '../../public/img/photos/15.jpg',
+            "title" => 'Озеро',
             "alt" => "Альтернативный текст",
-            "comment" => "Прекрасный комментарий"
+            "description" => "Красивая природа"
         ],
         [
-            "photo" => '../../assets/photos/SixteenthImage.jpg',
-            "title" => 'Название16',
+            "path" => '././public/img/photos/16.jpg',
+            "title" => 'Приозёрное шоссе',
             "alt" => "Альтернативный текст",
-            "comment" => "Прекрасный комментарий"
-        ],
+            "description" => "Красивая природа"
+        ]
     ];
 
-    function getData(){
-        return $this->images;
+    public function getPhoto(): array
+    {
+        return $this->photos;
     }
 }

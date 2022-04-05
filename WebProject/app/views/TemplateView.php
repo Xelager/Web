@@ -12,10 +12,6 @@
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Amatic+SC:wght@700&family=Gemunu+Libre:wght@700&family=Inter:wght@600;700&family=Open+Sans:ital,wght@1,500;1,600&display=swap" rel="stylesheet">
-    <script src="../../public/js/Models/photosModel.js"></script>
-    <script src="../../public/js/Scripts/photos.js"></script>
-    <script src="../../public/js/Models/myInterestsModel.js"></script>
-    <script src="../../public/js/Scripts/myInterests.js"></script>
     <script src="../../public/js/Scripts/myInterestsDropMenu.js"></script>
     <script src="../../public/js/Scripts/clock.js"></script>
     <title><?php if (isset($title)) {
