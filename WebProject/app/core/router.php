@@ -2,6 +2,9 @@
 
 namespace app\core;
 
+use JsonSchema\Exception\ResourceNotFoundException;
+use const Grpc\STATUS_NOT_FOUND;
+
 class Router {
 
     protected array $routes = [];
@@ -40,13 +43,18 @@ class Router {
                     $controller = new $path($this->params);
                     $controller->$action();
                 } else {
-                    echo 'Не найден экшен: ', $action;
+                    $this->Error404();
                 }
             } else {
-                echo 'Не найден контроллер: ', $path;
+                $this->Error404();
             }
         } else {
-            echo 'endpoint not found 404';
+            $this->Error404();
         }
+    }
+
+    private function Error404()
+    {
+        header($_SERVER["SERVER_PROTOCOL"]." 404 Not Found", true, 404);
     }
 }
