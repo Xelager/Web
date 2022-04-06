@@ -58,44 +58,43 @@
     </header>
     <div class="d-flex flex-column mx-5 border-common justify-content-center" style="padding-bottom: 6em;">
         <div class="some-form">
-            <form class="form js-form-validate" action="mailto:gazukin2002@mail.ru">
+            <form method="post" class="form js-form-validate">
                 <h1 class="some-form__header title text-about-header mt-0">Мой контакт</h1>
-                <div class="some-form__line">
-                    <input id="FioId" title="Пример: Иванов Иван Иванович" onblur="validationFioOnBlur()" onfocus="elementOnFocus(this)" type="text" name="FIO" placeholder="Ваше ФИО *" data-validate>
+                <div class="some-form__line <?php echo $vars->validator->errMessages['FIO'] ?>">
+                    <input id="FioId" value="<?php echo $vars->validated_fields['FIO'] ?>" title="Пример: Иванов Иван Иванович" type="text" name="FIO" placeholder="Ваше ФИО *" data-validate>
                     <span class="some-form__hint-succesfull">Отлично</span>
-                    <span class="some-form__hint">Обязательно для заполнения</span>
-                    <span class="some-form__hint-example">Некорректный ввод, пример: "Иванов Иван Иванович"</span>
+                    <span class="some-form__hint"><?php echo $vars->validator->errMessages['FIOError'] ?></span>
                 </div>
-                <div class="some-form__line">
-                    <input id="mail" title="Пример: ivan@mail.ru" type="email" onblur="validationMailOnBlur()" onfocus="elementOnFocus(this)" name="mail" placeholder="E-mail *" data-validate>
+                <div class="some-form__line <?php echo $vars->validator->errMessages['email'] ?>">
+                    <input id="mail" title="Пример: ivan@mail.ru" type="email" name="email" placeholder="E-mail *" value="<?php echo $vars->validated_fields['email'] ?>" data-validate>
                     <span class="some-form__hint-succesfull">Отлично</span>
-                    <span class="some-form__hint">Обязательно для заполнения</span>
-                    <span class="some-form__hint-example">Некорректный ввод, пример: "ivan@mail.ru"</span>
+                    <span class="some-form__hint"><?php echo $vars->validator->errMessages['emailError'] ?></span>
                 </div>
-                <div class="some-form__line">
-                    <input id="phone" type="tel" title="Пример: +79788888888" onblur="validationPhoneOnBlur()" onfocus="elementOnFocus(this)" name="phone" placeholder="Телефон *" data-validate>
+                <div class="some-form__line <?php echo $vars->validator->errMessages['phone'] ?>">
+                    <input  id="phone" type="tel" title="Пример: +79788888888"  name="phone" placeholder="Телефон *" value="<?php echo $vars->validated_fields['phone'] ?>" data-validate>
                     <span class="some-form__hint-succesfull">Отлично</span>
-                    <span class="some-form__hint">Обязательно для заполнения</span>
-                    <span class="some-form__hint-example">Некорректный ввод, пример: "+79788888888"</span>
+                    <span class="some-form__hint"><?php echo $vars->validator->errMessages['phoneError'] ?></span>
                 </div>
-                <div class="d-flex gap-5">
+                <div class="d-flex gap-5 some-form__line <?php echo $vars->validator->errMessages['gender'] ?>">
                     <div class="custom-radio text-about-min">
                         <span class="text-about">Выберите пол *:</span>
                         <div class="custom-control some-form__line mt-3">
-                            <input type="radio" class="custom-control-input" value="man" id="maleId" name="radio-stacked" required>
+                            <input type="radio" class="custom-control-input" value="man" id="maleId" name="gender" <?php if (trim($vars->validated_fields['gender']) && ($vars->validated_fields['gender'] == "men")) {echo "checked";} ?>>
                             <label class="custom-control-label" for="maleId">Мужской пол</label>
                         </div>
                         <div class="custom-control some-form__line">
-                            <input type="radio" class="custom-control-input" value="female" id="femaleId" name="radio-stacked" required>
+                            <input type="radio" class="custom-control-input" value="female" id="femaleId" name="gender" <?php if (trim($vars->validated_fields['gender']) && ($vars->validated_fields['gender'] == "female")) {echo "checked";} ?>>
                             <label class="custom-control-label" for="femaleId">Женский пол</label>
                         </div>
                         <div class="custom-control some-form__line">
-                            <input type="radio" class="custom-control-input" value="other" id="otherId" name="radio-stacked" required>
-                            <label class="custom-control-label" for="otherId">Другое</label>
+                            <input type="radio" class="custom-control-input" value="other" id="otherId" name="gender" <?php if (trim($vars->validated_fields['gender']) && ($vars->validated_fields['gender'] == "other")) {echo "checked";} ?>>
+                            <label class="custom-control-label mb-3" for="otherId">Другое</label>
+                            <span class="some-form__hint-succesfull mb-3">Отлично</span>
+                            <span class="some-form__hint mb-3"><?php echo $vars->validator->errMessages['genderError'] ?></span>
                         </div>
                     </div>
-                    <div class="date-picker">
-                        <div class="text-about selected-date"></div>
+                    <div class="date-picker some-form__line <?php echo $vars->validator->errMessages['birthDate'] ?>">
+                        <input name="birthDate" class="text-about selected-date" value="<?php echo $vars->validated_fields['birthDate'] ?>">
 
                         <div class="dates">
                             <div class="month">
@@ -113,10 +112,12 @@
                             </div>
                             <div class="days"></div>
                         </div>
+                        <span class="some-form__hint-succesfull mb-3">Отлично</span>
+                        <span class="some-form__hint mb-3"><?php echo $vars->validator->errMessages['birthDateError'] ?></span>
                     </div>
                 </div>
                 <div class="d-flex gap-3 some-form__submit align-items-center">
-                    <button id="formSubmit" type="button" value="Отправить" class="button button_submit button-wide" disabled>Отправить</button>
+                    <input id="formSubmit" type="submit" value="Отправить" class="button button_submit button-wide">
                     <button type="reset" value="reset" class="button_submit inter-button-text button-wide">Очистить поля</button>
                 </div>
             </form>

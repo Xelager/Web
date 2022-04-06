@@ -24,7 +24,10 @@ let selectedYear = year;
 
 mth_element.textContent = months[month] + ' ' + year;
 
-selected_date_element.textContent = formatDate(date);
+if (selected_date_element.value == "")
+{
+  selected_date_element.value = formatDate(date);
+}
 selected_date_element.dataset.value = selectedDate;
 
 populateDates();
@@ -100,8 +103,7 @@ function populateDates(e) {
       selectedMonth = month;
       selectedYear = year;
 
-      selected_date_element.textContent = formatDate(selectedDate);
-      console.log(selectedDate);
+      selected_date_element.value = formatDate(selectedDate);
       selected_date_element.dataset.value = selectedDate;
       dates_element.classList.remove('active');
       populateDates();
@@ -135,7 +137,7 @@ function formatDate(d) {
 
   let yearThis = d.getFullYear();
 
-  return "Дата рождения: " + dayThis + '.' + monthThis + '.' + yearThis;
+  return dayThis + '.' + monthThis + '.' + yearThis;
 }
 
 function initYearForm() {

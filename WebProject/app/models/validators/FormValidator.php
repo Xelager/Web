@@ -1,46 +1,40 @@
 <?php
 namespace app\models\validators;
 
+const MIN_WORD = 15;
+
 class FormValidator
 {
     public $rules = [];
     public $errors = [];
     public $errMessages = [];
-
-    public $predicates = [];
+    public $statements = [];
 
     public $validateMessage = [
-        'isNotEmpty' => 'Поле должно быть обязательно заполнено',
+        'isNotEmpty' => 'Поле обязательно к заполнению',
         'isInteger' => 'Введённые данные должны быть представлены в числовом формате',
-        'isString' => 'Поле должно быть строкой',
         'isLess' => 'Поле должно быть меньше ',
         'isGreater' => 'Поле должно быть больше ',
         'isEmail' => 'Поле должно быть в формате email (ivan@test.com)',
         'isPhone' => 'Поле должно быть в формате номера телефона (+79198888888)',
-        'isDate' => 'Поле должно быть в формате ДД.ММ.ГГ',
-        'isMinAnswerSize' => 'Ответ слишком короткий',
-        'isFIO' => 'ФИО должно быть в формате Иванов Иван Иванович'
+        'isDate' => 'Поле должно быть в формате ДД.ММ.ГГГГ',
+        'isMinWord' => 'Некорректный ввод, не менее 15 слов',
+        'isFIO' => 'ФИО должно быть в формате Иванов (Иван Иванович)'
     ];
 
-    public function isNotEmpty($data): bool
+    public function isNotEmpty($data)
     {
-        return !empty($data);
+        return trim($data);
     }
 
-    public function isInteger($data): bool
+    public function isInteger($data)
     {
         return (is_numeric($data));
     }
 
-    function isMinAnswerSize($data, $size): bool
+    function isMinWord($data, $size)
     {
         return (sizeof(explode(" ", $data)) < $size);
-    }
-
-    function isFIO($data, $size): bool
-    {
-        return preg_match('/^[А-ЯA-Z][а-яa-zА-ЯA-Z\-]{0,}\s[А-ЯA-Z][а-яa-zА-ЯA-Z\-]{1,}(\s[А-ЯA-Z][а-яa-zА-ЯA-Z\-]{1,})$/',
-            $data);
     }
 
     function isLess($data, $value)
@@ -66,19 +60,21 @@ class FormValidator
 
     function isPhone($data)
     {
-        return preg_match('/^((8|\+7)[\- ]?)?(\(?\d{3}\)?[\- ]?)?[\d\- ]{7,10}$/', $data);
+        return preg_match('/^[\+][3, 7][0-9]{8,10}$/im', $data);
+    }
+
+    function isFIO($data) {
+        return preg_match('/[A-ZА-Я][A-Za-zА-Яа-я]{3,}/', $data);
     }
 
     function isWord($data)
     {
-        if (!preg_match('/([A-Za-zА-Яа-я]){3,}/', $data)) {
-            return "Введите корректное слово";
-        }
+        return preg_match('/([A-Za-zА-Яа-я]){3,}/', $data);
     }
 
     function isDate($data)
     {
-        return preg_match('/([0-9]|[0-9][0-9])\/([0-9]|[0-9][0-9])\/([0-9][0-9][0-9][0-9])/', $data);
+        return preg_match('/([0-9]|[0-9][0-9]).([0-9]|[0-9][0-9]).([0-9][0-9][0-9][0-9])/', $data);
     }
 
     function SetRule($field_name, $rules)
@@ -88,7 +84,7 @@ class FormValidator
         }
     }
 
-    protected function ruleSwitcher($field_name, $rule_name, $value)
+    protected function ruleSwitcher($field_name, $rule_name, $value, $key)
     {
         $result = "";
         switch ($rule_name) {
@@ -98,17 +94,21 @@ class FormValidator
             case "isPhone":
             case "isDate":
             case "isFIO":
-            case "isWord": {
+            case "isWord":{
                     $result = $this->setValidateResult($rule_name, $value);
                     break;
                 }
-            case "isMinAnswerSize":
+            case "isMinWord":
             {
-                if ($this->isMinAnswerSize($value, 19)) {
+                if ($this->isMinWord($value, MIN_WORD)) {
                     $result = $this->validateMessage[$rule_name];
-                };
+                }
                 break;
             }
+        }
+
+        if ($key === "answers" && $rule_name != $value) {
+            $result = "Ответ не верный";
         }
 
         if (array_key_exists($field_name, $this->errors)) {
@@ -118,25 +118,25 @@ class FormValidator
         }
     }
 
-    function setValidateResult($methodName, $value): ?string
+    function setValidateResult($methodName, $value)
     {
-        if ($this->$methodName($value)) {
+        if ($this->$methodName($value) == false) {
             return $this->validateMessage[$methodName];
         };
-        return null;
+        return "";
     }
 
     function validate($post_array)
     {
         foreach ($post_array as $pkey => $value) {
-            $rules = $this->predicates[$pkey];
+            $rules = $this->statements[$pkey];
             $this->SetRule($pkey, $rules);
         }
 
         foreach ($this->rules as $field => $rules) {
             foreach ($rules as $key => $rule_name) {
                 $value = $post_array[$field];
-                $this->ruleSwitcher($field, $rule_name, $value);
+                $this->ruleSwitcher($field, $rule_name, $value, $key);
             }
         }
         $this->ShowErrors();
@@ -144,18 +144,23 @@ class FormValidator
 
     function ShowErrors()
     {
-        foreach ($this->errors as $pkey => $errors) {
+        $printedError = "";
+        foreach ($this->errors as $key => $errors) {
             $flag = false;
             foreach ($errors as $error) {
+                $printedError = $error;
                 if ($error != "") {
                     $flag = true;
                     break;
                 }
             }
-            if ($flag == true) {
-                $this->errMessages[$pkey] = '<div style="color: red;">' . $error . '</div>';
+
+            if ($flag) {
+                $this->errMessages[$key] = 'some-form__line-required';
+                $this->errMessages[$key.'Error'] = $printedError;
             } else {
-                $this->errMessages[$pkey] = '<div style="color: green;"> Верно!</div>';
+                $this->errMessages[$key] = 'some-form__line-succesfull';
+                $this->errMessages[$key.'Error'] = "";
             }
         }
     }

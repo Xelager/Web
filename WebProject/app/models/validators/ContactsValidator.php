@@ -11,16 +11,16 @@ class ContactsValidator extends FormValidator
         "birthDate" => ""
     ];
 
-    public $predicates = [
+    public $statements = [
         "FIO" => ["isNotEmpty", "isFIO"],
         "gender" => ["isNotEmpty"],
         "email" => ["isNotEmpty", "isEmail"],
         "phone" => ["isNotEmpty", "isPhone"],
-        "dateValue" => ["isNotEmpty", "isDate"],
+        "birthDate" => ["isNotEmpty", "isDate"],
     ];
 
     function validate($post_array, $predicates = [])
     {
-        parent::validate($post_array, $this->predicates);
+        parent::validate($post_array, $this->statements);
     }
 }

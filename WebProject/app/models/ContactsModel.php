@@ -28,7 +28,6 @@ class ContactsModel extends Model
                 $this->validated_fields[$key] = $post_data[$key];
             }
         }
-
         $this->validator->validate($this->validated_fields);
     }
 }

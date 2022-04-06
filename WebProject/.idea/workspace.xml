@@ -5,18 +5,17 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="3db0ea4f-cab1-4488-90fa-5eb9d5d0757e" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/app/models/validators/ContactsValidator.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/app/models/validators/FormValidator.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/app/models/validators/TestValidator.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/controllers/ContactsController.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/controllers/ContactsController.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/core/controller.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/core/controller.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/core/model.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/core/model.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/core/router.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/core/router.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/core/view.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/core/view.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/controllers/TestController.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/controllers/TestController.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/app/models/ContactsModel.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/models/ContactsModel.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/models/TestModel.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/models/TestModel.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/models/validators/ContactsValidator.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/models/validators/ContactsValidator.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/models/validators/FormValidator.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/models/validators/FormValidator.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/models/validators/TestValidator.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/models/validators/TestValidator.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/app/views/ContactsView.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/views/ContactsView.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/js/ValidationScripts/contactValidation.js" beforeDir="false" afterPath="$PROJECT_DIR$/public/js/ValidationScripts/contactValidation.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/views/TemplateView.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/views/TemplateView.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/views/TestView.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/views/TestView.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/js/Scripts/dateOfBirth.js" beforeDir="false" afterPath="$PROJECT_DIR$/public/js/Scripts/dateOfBirth.js" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -118,7 +117,7 @@
       <option name="presentableId" value="Default" />
       <updated>1648952699075</updated>
       <workItem from="1648952700297" duration="2832000" />
-      <workItem from="1648955954374" duration="47903000" />
+      <workItem from="1648955954374" duration="66488000" />
     </task>
     <servers />
   </component>

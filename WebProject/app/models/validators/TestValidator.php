@@ -3,25 +3,23 @@ namespace app\models\validators;
 
 class TestValidator extends FormValidator{
     public $errMessages = [
-        "name" => "",
-        "lastName" => "",
+        "FIO" => "",
         "email" => "",
-        "qstn1" => "",
-        "qstn2" => "",
-        "qstn3" => ""
+        "question1" => "",
+        "question2" => "",
+        "question3" => ""
     ];
 
-    public $predicates = [
-        "name" => ["isNotEmpty", "isWord"],
-        "lastName" => ["isNotEmpty", "isWord"],
+    public $statements = [
+        "FIO" => ["isNotEmpty", "isFIO"],
         "email" => ["isNotEmpty", "isEmail"],
-        "qstn1" => ["isNotEmpty"],
-        "qstn2" => ["isNotEmpty"],
-        "qstn3" => ["isNotEmpty", "isMinAnswerSize"]
+        "question1" => ["isNotEmpty", "answers" => "1answerState"],
+        "question2" => ["isNotEmpty", "isMinWord"],
+        "question3" => ["isNotEmpty", "answers" => "answer1"]
     ];
 
     function validate($post_array, $predicates = [])
     {
-        parent::validate($post_array, $this->predicates);
+        parent::validate($post_array, $this->statements);
     }
 }

@@ -1,14 +1,16 @@
 <?php
 namespace app\models;
-include 'app/models/validators/TestValidator.php';
+use app\core\Model;
+use app\models\validators\TestValidator;
+
 class TestModel extends Model {
-    public $fields = [
-        "name" => "",
-        "lastName" => "",
+
+    public array $validated_fields = [
+        "FIO" => "",
         "email" => "",
-        "qstn1" => "",
-        "qstn2" => "",
-        "qstn3" => ""
+        "question1" => "",
+        "question2" => "",
+        "question3" => ""
     ];
 
     function __construct()
@@ -16,27 +18,16 @@ class TestModel extends Model {
         $this->validator = new TestValidator();
     }
 
-    function validateForm($post_array)
+    function validateForm($post_data)
     {
-        unset($post_array["submit"]);
-        if (!empty($post_array["email"])) {
-            $this->fields["email"] = $post_array["email"];
+        unset($post_data["submit"]);
+
+        foreach ($this->validated_fields as $key => $data)
+        {
+            if (!empty($post_data[$key])) {
+                $this->validated_fields[$key] = $post_data[$key];
+            }
         }
-        if (!empty($post_array["name"])) {
-            $this->fields["name"] = $post_array["name"];
-        }
-        if (!empty($post_array["lastName"])) {
-            $this->fields["lastName"] = $post_array["lastName"];
-        }
-        if (!empty($post_array["qstn1"])) {
-            $this->fields["qstn1"] = $post_array["qstn1"];
-        }
-        if (!empty($post_array["qstn2"])) {
-            $this->fields["qstn2"] = $post_array["qstn2"];
-        }
-        if (!empty($post_array["qstn3"])) {
-            $this->fields["qstn3"] = $post_array["qstn3"];
-        }
-        $this->validator->validate($this->fields);
+        $this->validator->validate($this->validated_fields);
     }
 }
