@@ -2,9 +2,6 @@
 
 namespace app\core;
 
-use JsonSchema\Exception\ResourceNotFoundException;
-use const Grpc\STATUS_NOT_FOUND;
-
 class Router {
 
     protected array $routes = [];

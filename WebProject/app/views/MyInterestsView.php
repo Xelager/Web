@@ -63,9 +63,33 @@
     <div class="d-flex border-common justify-content-center">
         <div class="card text-about margin-text">
             <div class="card-body mx-3">
-                <?php if (isset($vars)) {
-                    $vars->printMyInterests();
-                } ?>
+              <h1 class="card-title d-flex text-about-header justify-content-center mt-2" id="mySerial">Мои интересы</h1>
+              <div class="mb-3">
+                <?php
+                $myInterests = $vars->getData();
+                foreach ($myInterests as $key => $myInterest) {
+                  echo '<h3 class="card-text d-flex text-about-header mt-5">'.$key.'</h3>';
+                  echo $myInterest['content'];
+                  $elemsOnLine = 3;
+                  $count = 0;
+                  echo '<div class="d-flex flex-column gap-3">';
+                  foreach ($myInterest['photos'] as $key => $photo) {
+                      if ($count % $elemsOnLine === 0) {
+                          echo '<div class="d-flex justify-content-around">';
+                      }
+
+                      echo '<div class="row gap-3 image-interest align-self-end">';
+                      echo '<img src="'.$photo['path'].'" alt="The image was not found" />';
+                      echo '<span class="text-about-header"  id="'.$photo['id'].'">'.$photo['name'].'</span>';
+                      echo '</div>';
+                      if ($count % $elemsOnLine === ($elemsOnLine - 1)) {
+                          echo '</div>';
+                      }
+                      $count++;
+                  }
+                  echo '</div>';
+                }
+                 ?>
             </div>
         </div>
     </div>

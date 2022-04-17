@@ -66,8 +66,38 @@
             </div>
         </nav>
     </header>
-    <div class="d-flex flex-column mx-5 border-common justify-content-center">
-        <?php if (isset($vars)) {
-            $vars->printPhotos();
-        } ?>
+        <?php
+
+
+        $count = 0;
+        $elemsOnLine = 5;
+        $photos = $vars->getPhoto();
+        foreach ($photos as $key => $photo) {
+            if (($count % $elemsOnLine) === 0) {
+                echo '<div class="d-flex align-items-center">';
+            }
+            echo '<div class="d-flex flex-column gap-2 align-items-center cont">';
+            echo '<div class="content">';
+            echo '<img id="'.$key.'" class="content-image popup-open" src="'.$photo['path'].'" alt="The image '.$photo['alt'].' was not found" />';
+            echo '</div>';
+            echo '</div>';
+
+            if (($count % $elemsOnLine) === ($elemsOnLine - 1)) {
+                echo '</div>';
+            }
+            echo
+                '<script>
+                    var element = document.getElementById('.$key.');
+                    var bigPhoto = document.getElementById("bigPhoto");
+                    element.addEventListener(\'click\', (event) => {
+                    var targetElement = document.getElementById(event.target.id);
+                    bigPhoto.src = targetElement.src;
+                    bigPhoto.title = targetElement.id;
+                    bigPhoto.alt = targetElement.alt;
+                   });
+                </script>';
+
+            $count = $count + 1;
+          }
+         ?>
     </div>

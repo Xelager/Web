@@ -1,20 +1,20 @@
 <?php
 namespace app\controllers;
 use app\core\Controller;
-use app\core\services\PhotosService;
+use app\models\PhotosModel;
 
 class PhotosController extends Controller
 {
-    private PhotosService $photosService;
+    private PhotosModel $photosModel;
 
     public function __construct($route)
     {
         parent::__construct($route);
-        $this->photosService = new PhotosService();
+        $this->photosModel = new PhotosModel();
     }
 
     function indexAction()
     {
-        $this->view->render('Photos', $this->photosService);
+        $this->view->render('Photos', $this->photosModel);
     }
 }

@@ -101,7 +101,7 @@ class MyInterestsModel extends Model
                             [
                                 'id' => 'game',
                                 'path' => '../../public/img/interests/game2.jpg',
-                                'name' => '. Ведьмак 3',
+                                'name' => '2. Ведьмак 3',
                             ]
                         ]
             ],

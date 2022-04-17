@@ -1,20 +1,20 @@
 <?php
 namespace app\controllers;
 use app\core\Controller;
-use app\core\services\MyInterestsService;
+use app\models\MyInterestsModel;
 
 class MyInterestsController extends Controller
 {
-    private MyInterestsService $myInterestsService;
+    private MyInterestsModel $myInterestsModel;
 
     public function __construct($route)
     {
         parent::__construct($route);
-        $this->myInterestsService = new MyInterestsService();
+        $this->myInterestsModel = new MyInterestsModel();
     }
 
     function indexAction()
     {
-        $this->view->render('My interests', $this->myInterestsService);
+        $this->view->render('My interests', $this->myInterestsModel);
     }
 }
