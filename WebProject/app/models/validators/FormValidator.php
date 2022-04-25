@@ -19,8 +19,13 @@ class FormValidator
         'isPhone' => 'Поле должно быть в формате номера телефона (+79198888888)',
         'isDate' => 'Поле должно быть в формате ДД.ММ.ГГГГ',
         'isMinWord' => 'Некорректный ввод, не менее 15 слов',
-        'isFIO' => 'ФИО должно быть в формате Иванов (Иван Иванович)'
+        'isWord' => 'Строка должна быть длиннее',
+        'isFileType' => 'Некорректный тип загружаемого файла'
     ];
+
+    public function isFileType($file) {
+        return $file["type"] != null;
+    }
 
     public function isNotEmpty($data)
     {
@@ -94,13 +99,19 @@ class FormValidator
             case "isPhone":
             case "isDate":
             case "isFIO":
-            case "isWord":{
+            case "isWord": {
                     $result = $this->setValidateResult($rule_name, $value);
                     break;
                 }
             case "isMinWord":
             {
                 if ($this->isMinWord($value, MIN_WORD)) {
+                    $result = $this->validateMessage[$rule_name];
+                }
+                break;
+            }
+            case "isFileType": {
+                if (!$this->isFileType($value)) {
                     $result = $this->validateMessage[$rule_name];
                 }
                 break;
@@ -126,7 +137,7 @@ class FormValidator
         return "";
     }
 
-    function validate($post_array)
+    function validate($post_array): bool
     {
         foreach ($post_array as $pkey => $value) {
             $rules = $this->statements[$pkey];
@@ -139,17 +150,19 @@ class FormValidator
                 $this->ruleSwitcher($field, $rule_name, $value, $key);
             }
         }
-        $this->ShowErrors();
+        return $this->ShowErrors();
     }
 
-    function ShowErrors()
+    function ShowErrors(): bool
     {
         $printedError = "";
+        $validateResultFlag = true;
         foreach ($this->errors as $key => $errors) {
             $flag = false;
             foreach ($errors as $error) {
                 $printedError = $error;
                 if ($error != "") {
+                    $validateResultFlag = false;
                     $flag = true;
                     break;
                 }
@@ -163,5 +176,6 @@ class FormValidator
                 $this->errMessages[$key.'Error'] = "";
             }
         }
+        return $validateResultFlag;
     }
 }

@@ -12,37 +12,43 @@
                     <div>
                         <ul class="nav gap-3 nav-font">
                             <li class="nav-item">
-                                <a class="nav-link btn-orange px-2" href="./aboutMe"><i class="fas fa-user"></i> Обо мне</a>
+                                <a class="nav-link btn-orange px-2" href="../aboutMe"><i class="fas fa-user"></i> Обо мне</a>
                             </li>
                             <li class="nav-item">
-                                <a class="nav-link nav-color px-0" href="./education"><i class="fas fa-graduation-cap"></i> Учёба</a>
+                                <a class="nav-link nav-color px-0" href="../myBlog"><i class="fa-brands fa-microblog"></i> Мой блог</a>
                             </li>
                             <li class="nav-item">
-                                <a class="nav-link nav-color px-0" href="./photos"><i class="far fa-images"></i> Фотоальбом</a>
+                                <a class="nav-link nav-color px-0" href="../education"><i class="fas fa-graduation-cap"></i> Учёба</a>
                             </li>
                             <li class="nav-item">
-                                <a class="nav-link nav-color px-0" href="./contacts"><i class="far fa-address-book"></i> Контакты</a>
+                                <a class="nav-link nav-color px-0" href="../photos"><i class="far fa-images"></i> Фотоальбом</a>
                             </li>
                             <li class="nav-item">
-                                <a class="nav-link nav-color px-0" href="./test"><i class="far fa-file-alt"></i> Тест</a>
+                                <a class="nav-link nav-color px-0" href="../contacts"><i class="far fa-address-book"></i> Контакты</a>
                             </li>
                             <li class="nav-item">
-                                <a class="nav-link nav-color px-0" href="./history"><i class="fas fa-history"></i> История</a>
+                                <a class="nav-link nav-color px-0" href="../test"><i class="far fa-file-alt"></i> Тест</a>
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link nav-color px-0" href="../history"><i class="fas fa-history"></i> История</a>
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link nav-color px-0" href="../guestBook/index"><i class="fa-solid fa-book-open-cover"></i> Гостевая книга</a>
                             </li>
                             <li id="dropMenuInterests" class="nav-item">
-                                <a class="nav-link nav-color px-0" href="./myInterests"><i class="fas fa-table-tennis"></i> Мои интересы</a>
+                                <a class="nav-link nav-color px-0" href="../myInterests"><i class="fas fa-table-tennis"></i> Мои интересы</a>
                                 <ul id="myDropdown" class="bg-white p-1">
                                     <li class="nav-item">
-                                        <a href="./myInterests#mySerial" class="btn btn-outline-primary mb-2" style="font-size: 14px !important;">1. Мои любимые сериалы</a>
+                                        <a href="../myInterests#mySerial" class="btn btn-outline-primary mb-2" style="font-size: 14px !important;">1. Мои любимые сериалы</a>
                                     </li>
                                     <li class="nav-item">
-                                        <a href="./myInterests#myHobby" class="btn btn-outline-primary mb-2" style="font-size: 14px !important;">2. Мои хобби</a>
+                                        <a href="../myInterests#myHobby" class="btn btn-outline-primary mb-2" style="font-size: 14px !important;">2. Мои хобби</a>
                                     </li>
                                     <li class="nav-item">
-                                        <a href="./myInterests#myBooks" class="btn btn-outline-primary mb-2" style="font-size: 14px !important;">3. Мои любимые книги</a>
+                                        <a href="../myInterests#myBooks" class="btn btn-outline-primary mb-2" style="font-size: 14px !important;">3. Мои любимые книги</a>
                                     </li>
                                     <li class="nav-item">
-                                        <a href="./myInterests#myGames" class="btn btn-outline-primary" style="font-size: 14px !important;">4. Мои любимые игры</a>
+                                        <a href="../myInterests#myGames" class="btn btn-outline-primary" style="font-size: 14px !important;">4. Мои любимые игры</a>
                                     </li>
                                 </ul>
                             </li>

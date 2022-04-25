@@ -18,8 +18,8 @@ class TestValidator extends FormValidator{
         "question3" => ["isNotEmpty", "answers" => "answer1"]
     ];
 
-    function validate($post_array, $predicates = [])
+    function validate($post_array, $predicates = []) : bool
     {
-        parent::validate($post_array, $this->statements);
+        return parent::validate($post_array, $this->statements);
     }
 }

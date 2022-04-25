@@ -1,0 +1,127 @@
+{
+  "name": "Feedback Test",
+  "toolType": "Feedback",
+  "questions": [
+    {
+      "tags": "reason",
+      "questionText": "Please choose one of the suggested options",
+      "description": "This information is needed to evaluate our services.",
+      "order": 0,
+      "answerOptions": [
+        {
+          "text": "Cost",
+          "value": "1",
+          "order": 0,
+          "answerOptionType": "ScoreNumberWithCustomAnswer"
+        },
+        {
+          "text": "Therapist",
+          "value": "2",
+          "order": 1,
+          "answerOptionType": "ScoreNumberWithCustomAnswer"
+        },
+        {
+          "text": "LackOfTime",
+          "value": "3",
+          "order": 2,
+          "answerOptionType": "ScoreNumberWithCustomAnswer"
+        },
+        {
+	  "tags":"customAnswer",
+          "text": "Other",
+          "value": "Custom Text",
+          "order": 3,
+          "answerOptionType": "ScoreNumberWithCustomAnswer"
+        },
+      ]
+    },
+    {
+      "tags": "satisfactionFromTherapist",
+      "questionText": "Are you satisfied with our therapist?",
+      "description": "This information is needed to evaluate our services.",
+      "order": 1,
+      "answerOptions": [
+        {
+          "tags": "min",
+          "text": "Min available value",
+          "value": "0",
+          "order": 0,
+          "answerOptionType": "SliderValue"
+        },
+        {
+          "tags": "max",
+          "text": "Max available value",
+          "value": "5",
+          "order": 1,
+          "answerOptionType": "SliderValue"
+        }
+      ]
+    },
+{
+      "tags": "commentOnTherapist",
+      "questionText": "Comment on the therapist",
+      "description": "This information is needed to evaluate our services.",
+      "order": 2,
+      "answerOptions": [
+{
+          "tags":"max",
+          "text": "Comment On Therapist",
+          "value": "256",
+          "order": 0,
+          "answerOptionType": "Text"
+        },
+        {
+          "tags":"placeholder",
+          "text": "Placeholer",
+          "value": "Please comment on Therapist",
+          "order": 1,
+          "answerOptionType": "Text"
+        }
+      ]
+    },
+    {
+      "tags": "satisfactionFromProgram",
+      "questionText": "Are you satisfied with our program?",
+      "description": "This information is needed to evaluate our services.",
+      "order": 3,
+      "answerOptions": [
+        {
+          "tags": "min",
+          "text": "Min available value",
+          "value": "0",
+          "order": 0,
+          "answerOptionType": "SliderValue"
+        },
+        {
+          "tags": "max",
+          "text": "Max available value",
+          "value": "5",
+          "order": 1,
+          "answerOptionType": "SliderValue"
+        }
+      ]
+    },
+    {
+      "tags": "commentOnProgram",
+      "questionText": "Comment on the program",
+      "description": "This information is needed to evaluate our services.",
+      "order": 4,
+      "answerOptions": [
+       {
+          "tags":"max",
+          "text": "Comment On Program",
+          "value": "256",
+          "order": 0,
+          "answerOptionType": "Text"
+        },
+        {
+          "tags":"placeholder",
+          "text": "Placeholer",
+          "value": "Please comment on Program",
+          "order": 1,
+          "answerOptionType": "Text"
+        }
+      ]
+    },
+  ]
+}

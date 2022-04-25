@@ -152,6 +152,12 @@
     font-size: 18px;
 }
 
+.text-guestBook {
+    font-family: 'Inter', sans-serif !important;
+    font-size: 18px !important;
+    font-weight: 600 !important;
+}
+
 .text-about-header {
     font-family: 'Inter', sans-serif !important;
     font-weight: 600 !important;

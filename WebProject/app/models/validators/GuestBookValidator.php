@@ -1,22 +1,22 @@
 <?php
 namespace app\models\validators;
 
-class ContactsValidator extends FormValidator
+class GuestBookValidator extends FormValidator
 {
     public $errMessages = [
-        "FIO" => "",
-        "gender" => "",
+        "firstName" => "",
+        "lastName" => "",
+        "patronymic" => "",
         "email" => "",
-        "phone" => "",
-        "birthDate" => ""
+        "feedback" => "",
     ];
 
     public $statements = [
-        "FIO" => ["isNotEmpty", "isFIO"],
-        "gender" => ["isNotEmpty"],
+        "firstName" => ["isNotEmpty"],
+        "lastName" => ["isNotEmpty"],
+        "patronymic" => ["isNotEmpty"],
         "email" => ["isNotEmpty", "isEmail"],
-        "phone" => ["isNotEmpty", "isPhone"],
-        "birthDate" => ["isNotEmpty", "isDate"],
+        "feedback" => ["isNotEmpty", "isWord"]
     ];
 
     function validate($post_array, $predicates = []) : bool

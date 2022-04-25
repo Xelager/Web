@@ -1,0 +1,14 @@
+{
+  "gender": "Male",
+  "role": "CustomerService",
+  "firstName": "Petr",
+  "lastName": "Grigorenko",
+  "email": "customerService@test.com",
+  "customerTypes": [
+    "B8321B10-03BE-4872-E57A-08DA03966638",
+"D7ED1EE4-C206-4A1F-E578-08DA03966638"
+  ],
+
+  "isActiveUser": true,
+  "organizationId": "189C0A23-264B-4365-87A4-C3569CE8F0F6"
+}

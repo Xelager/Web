@@ -36,4 +36,12 @@ return [
     'myInterests' => [
         'controller' => 'MyInterests',
         'action' => 'Index' ],
+
+    'guestBook/index' => [
+        'controller' => 'GuestBook',
+        'action' => 'Index' ],
+
+    'guestBook/uploadBook' => [
+        'controller' => 'GuestBook',
+        'action' => 'uploadBook' ]
 ];
