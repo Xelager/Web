@@ -1,9 +1,11 @@
 <?php
 namespace app\models;
 use app\core\Model;
+use app\models\tables\Test;
 use app\models\validators\TestValidator;
 
 class TestModel extends Model {
+    public $testTable;
 
     public array $validated_fields = [
         "FIO" => "",
@@ -16,6 +18,7 @@ class TestModel extends Model {
     function __construct()
     {
         $this->validator = new TestValidator();
+        $this->testTable = new Test;
     }
 
     function validateForm($post_data)
@@ -29,5 +32,17 @@ class TestModel extends Model {
             }
         }
         return $this->validator->validate($this->validated_fields);
+    }
+
+    public function saveData($rating)
+    {
+        $this->testTable->name = $_POST["FIO"];
+        $this->testTable->answer1 = $_POST["question1"];
+        $this->testTable->answer2 = $_POST["question2"];
+        $this->testTable->answer3 = $_POST["question3"];
+        $this->testTable->rating = $rating;
+        $this->testTable->email = $_POST["email"];
+        $this->testTable->date = date('d.m.y h:i:s');
+        $this->testTable->save();
     }
 }
