@@ -1,12 +1,11 @@
 <?php
 
-namespace app\models\tables;
+namespace app\models\entities;
 
 use app\core\BaseActiveRecord;
 
 class Test extends BaseActiveRecord
 {
-    protected static string $tableName = 'TestAlgorithm';
     public $id;
     public $name;
     public $answer1;
@@ -14,5 +13,11 @@ class Test extends BaseActiveRecord
     public $answer3;
     public $rating;
     public $email;
-    public $date;
+    public $createdAt;
+
+    function __construct()
+    {
+        self::$tablename = 'TestAlgorithm';
+        parent::__construct();
+    }
 }

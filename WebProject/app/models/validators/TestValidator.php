@@ -11,11 +11,11 @@ class TestValidator extends FormValidator{
     ];
 
     public $statements = [
-        "FIO" => ["isNotEmpty", "isFIO"],
+        "FIO" => ["isNotEmpty", "isWord"],
         "email" => ["isNotEmpty", "isEmail"],
-        "question1" => ["isNotEmpty", "answers" => "1answerState"],
+        "question1" => ["isNotEmpty"],
         "question2" => ["isNotEmpty", "isMinWord"],
-        "question3" => ["isNotEmpty", "answers" => "answer1"]
+        "question3" => ["isNotEmpty"]
     ];
 
     function validate($post_array, $predicates = []) : bool

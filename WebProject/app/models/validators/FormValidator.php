@@ -8,6 +8,7 @@ class FormValidator
     public $rules = [];
     public $errors = [];
     public $errMessages = [];
+    public $isSuccessfulValidation = true;
     public $statements = [];
 
     public $validateMessage = [
@@ -20,11 +21,21 @@ class FormValidator
         'isDate' => 'Поле должно быть в формате ДД.ММ.ГГГГ',
         'isMinWord' => 'Некорректный ввод, не менее 15 слов',
         'isWord' => 'Строка должна быть длиннее',
-        'isFileType' => 'Некорректный тип загружаемого файла'
+        'isTextFile' => 'Данный файл должен быть .txt',
+        'isImageFile' => 'Данный файл должен быть .png .jpg .jpeg',
+        'isCSVFile' => 'Данный файл должен быть .csv'
     ];
 
-    public function isFileType($file) {
-        return $file["type"] != null;
+    public function isTextFile($file) {
+        return $file["type"] == "text/plane";
+    }
+
+    public function isImageFile($file) {
+        return $file["type"] == "image/jpeg" || $file["type"] == "image/png";
+    }
+
+    public function isCSVFile($file) {
+        return $file["type"] == "application/vnd.ms-excel" || $file["type"] == "text/csv";
     }
 
     public function isNotEmpty($data)
@@ -68,10 +79,6 @@ class FormValidator
         return preg_match('/^[\+][3, 7][0-9]{8,10}$/im', $data);
     }
 
-    function isFIO($data) {
-        return preg_match('/[A-ZА-Я][A-Za-zА-Яа-я]{3,}/', $data);
-    }
-
     function isWord($data)
     {
         return preg_match('/([A-Za-zА-Яа-я]){3,}/', $data);
@@ -92,26 +99,30 @@ class FormValidator
     protected function ruleSwitcher($field_name, $rule_name, $value, $key)
     {
         $result = "";
+
         switch ($rule_name) {
+            case "NotRequired":
+                if ($value == null)
+                {
+                    break;
+                }
+                break;
             case "isNotEmpty":
             case "isEmail":
             case "isInteger":
             case "isPhone":
             case "isDate":
             case "isFIO":
-            case "isWord": {
+            case "isWord":
+            case "isImageFile":
+            case "isTextFile":
+            case "isCSVFile" :{
                     $result = $this->setValidateResult($rule_name, $value);
                     break;
                 }
             case "isMinWord":
             {
                 if ($this->isMinWord($value, MIN_WORD)) {
-                    $result = $this->validateMessage[$rule_name];
-                }
-                break;
-            }
-            case "isFileType": {
-                if (!$this->isFileType($value)) {
                     $result = $this->validateMessage[$rule_name];
                 }
                 break;
@@ -137,10 +148,15 @@ class FormValidator
         return "";
     }
 
-    function validate($post_array): bool
+    function validate($post_array, $statements): bool
     {
+        $this->statements = $statements;
         foreach ($post_array as $pkey => $value) {
             $rules = $this->statements[$pkey];
+            echo (in_array("NotRequired", $rules));
+            if ($value == null && in_array("NotRequired", $rules)) {
+                continue 1;
+            }
             $this->SetRule($pkey, $rules);
         }
 
@@ -163,6 +179,7 @@ class FormValidator
                 $printedError = $error;
                 if ($error != "") {
                     $validateResultFlag = false;
+                    $this->isSuccessfulValidation = false;
                     $flag = true;
                     break;
                 }

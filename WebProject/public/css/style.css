@@ -27,12 +27,22 @@
     object-fit: cover;
 }
 
+.image-blog {
+    display: block;
+    max-width: 500px;
+    max-height: 500px;
+    width: 100%;
+    border-radius: 5%;
+    object-fit: cover;
+}
+
 .navbar-brand-font {
     font-family: 'Gemunu Libre', sans-serif !important;
     font-weight: 600 !important;
 }
 
 .nav-font {
+    font-size: 16px !important;
     font-family: 'Inter', sans-serif !important;
     font-weight: 600 !important;
 }

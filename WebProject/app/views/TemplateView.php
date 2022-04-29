@@ -23,7 +23,7 @@
                     <footer class="footer fixed-bottom bg-dark">
                         <div class="container-md text-muted gap-4 d-flex justify-content-center my-2 p-0">
                             <a class="footer-contact" href="https://vk.com/alexightgaz" target="_blank"><i class="fab fa-vk"></i></a>
-                            <a class="footer-contact" href="index.html"><i class="fab fa-telegram-plane"></i></a>
+                            <a class="footer-contact" href="/"><i class="fab fa-telegram-plane"></i></a>
                             <span>email: gazukin2002@mail.ru</span>
                             <span>tel1.: +7 (978) 777 77 77</span>
                             <span>tel2.: +7 (978) 888 88 88</span>

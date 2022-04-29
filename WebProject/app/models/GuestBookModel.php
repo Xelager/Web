@@ -18,6 +18,7 @@ class GuestBookModel extends Model
 
     function __construct($file = null, $path = null)
     {
+        parent::__construct();
         $this->validator = new GuestBookValidator();
         $this->file = fopen($this->path, "a+");
     }
@@ -46,26 +47,29 @@ class GuestBookModel extends Model
         $fileContent = file($this->path);
         foreach ($fileContent as $key => $value) {
             $arr["date"] = date(substr($value, 0, strpos($value, ';')));
+            if (!trim($arr["date"])) {
+                continue;
+            }
             $value = strstr($value, ";");
-            $arr["lastName"] = substr($value, 1, @strpos($value, ';', 1) - 1);
+            $arr["lastName"] = substr($value, 1, @stripos($value, ';', 1) - 1);
+            if (!trim($arr["lastName"])) continue;
             $value = substr($value, 1);
             $value = strstr($value, ";");
-            $arr["firstName"] = substr($value, 1, @strpos($value, ';', 1) - 1);
+            $arr["firstName"] = substr($value, 1, @stripos($value, ';', 1) - 1);
+            if (!trim($arr["firstName"])) continue;
             $value = substr($value, 1);
             $value = strstr($value, ";");
-            $arr["patronymic"] = substr($value, 1, @strpos($value, ';', 1) - 1);
+            $arr["patronymic"] = substr($value, 1, @stripos($value, ';', 1) - 1);
+            if (!trim($arr["patronymic"])) continue;
             $value = substr($value, 1);
             $value = strstr($value, ";");
-            $arr["email"] = substr($value, 1, @strpos($value, ';', 1) - 1);
+            $arr["email"] = substr($value, 1, @stripos($value, ';', 1) - 1);
+            if (!trim($arr["email"])) continue;
             $value = substr($value, 1);
             $value = strstr($value, ";");
             $arr["feedback"] = substr($value, 1);
-
-            if (trim($arr["date"]) && trim($arr["firstName"]) && trim($arr["lastName"]) && trim($arr["patronymic"]) &&
-                trim($arr["email"]) && trim($arr["feedback"]))
-            {
-                $records[$key] = $arr;
-            }
+            if (!trim($arr["feedback"])) continue;
+            $records[$key] = $arr;
         }
         usort($records, array('app\models\GuestBookModel', 'compare'));
         return $records ?? [];

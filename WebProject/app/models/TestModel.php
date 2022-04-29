@@ -1,11 +1,14 @@
 <?php
 namespace app\models;
 use app\core\Model;
-use app\models\tables\Test;
+use app\models\entities\Test;
+use app\models\validators\ResultsValidation;
 use app\models\validators\TestValidator;
 
 class TestModel extends Model {
     public $testTable;
+    public $numberPage = 0;
+    public $countPages = 0;
 
     public array $validated_fields = [
         "FIO" => "",
@@ -17,8 +20,13 @@ class TestModel extends Model {
 
     function __construct()
     {
-        $this->validator = new TestValidator();
-        $this->testTable = new Test;
+        parent::__construct();
+        $this->validator = new ResultsValidation();
+        $this->testTable = new Test();
+
+        $this->validator->SetAnswer('question1', "1answerState");
+        $this->validator->SetAnswer('question2', 'derabdsrteh derabdsrteh derabdsrteh derabdsrteh derabdsrteh derabdsrteh derabdsrteh derabdsrteh derabdsrteh derabdsrteh derabdsrteh derabdsrteh derabdsrteh derabdsrteh derabdsrteh derabdsrteh derabdsrteh derabdsrteh derabdsrteh derabdsrteh derabdsrteh derabdsrteh derabdsrteh derabdsrteh derabdsrteh derabdsrteh derabdsrteh derabdsrteh derabdsrteh derabdsrteh derabdsrteh derabdsrteh derabdsrteh derabdsrteh derabdsrteh derabdsrteh derabdsrteh derabdsrteh derabdsrteh derabdsrteh derabdsrteh derabdsrteh derabdsrteh derabdsrteh derabdsrteh derabdsrteh derabdsrteh derabdsrteh derabdsrteh derabdsrteh derabdsrteh derabdsrteh derabdsrteh derabdsrteh derabdsrteh derabdsrteh derabdsrteh derabdsrteh ');
+        $this->validator->SetAnswer('question3', 'answer1');
     }
 
     function validateForm($post_data)
@@ -34,15 +42,44 @@ class TestModel extends Model {
         return $this->validator->validate($this->validated_fields);
     }
 
-    public function saveData($rating)
+    public function addNewElement($rating)
+    {;
+        $record = new Test();
+        $record->name = $_POST["FIO"];
+        $record->answer1 = $_POST["question1"];
+        $record->answer2 = $_POST["question2"];
+        $record->answer3 = $_POST["question3"];
+        $record->rating = $rating;
+        $record->email = $_POST["email"];
+        $record->createdAt = date('y.m.d h:i:s');
+        $record->save();
+    }
+
+    function getRecords($countOnPage)
     {
-        $this->testTable->name = $_POST["FIO"];
-        $this->testTable->answer1 = $_POST["question1"];
-        $this->testTable->answer2 = $_POST["question2"];
-        $this->testTable->answer3 = $_POST["question3"];
-        $this->testTable->rating = $rating;
-        $this->testTable->email = $_POST["email"];
-        $this->testTable->date = date('d.m.y h:i:s');
-        $this->testTable->save();
+        $countRecords = $this->testTable->getCount();
+        $this->countPages = (int)($countRecords / $countOnPage);
+        $this->numberPage = isset($_GET["number"]) ? $this->setPagination($_GET["number"], $countOnPage) : 0;
+        $firstElementPage = $countOnPage * $this->numberPage;
+        return $this->testTable->getRecordsWithPagination($firstElementPage, $countOnPage, "ORDER BY createdAt DESC");
+    }
+
+    function setPagination($pageNumber, $countOnPage)
+    {
+        $countRecords = $this->testTable->getCount();
+        $this->countPages = (int)($countRecords / $countOnPage);
+        if ($countRecords > 0 && ($countRecords % $countOnPage) == 0)
+        {
+            $this->countPages = $this->countPages - 1;
+        }
+        if ($pageNumber <= $this->countPages && $pageNumber > 0) {
+            return $pageNumber;
+        }
+        elseif ($pageNumber > $this->countPages) {
+            return $this->countPages;
+        }
+        else {
+            return 0;
+        }
     }
 }

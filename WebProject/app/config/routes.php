@@ -5,35 +5,35 @@ return [
         'controller' => 'Home',
         'action' => 'Index' ],
 
-    'home' => [
+    'home/index' => [
         'controller' => 'Home',
         'action' => 'Index' ],
 
-    'contacts' => [
+    'contacts/index' => [
         'controller' => 'Contacts',
         'action' => 'Index' ],
 
-    'education' => [
+    'education/index' => [
         'controller' => 'Education',
         'action' => 'Index' ],
 
-    'photos' => [
+    'photos/index' => [
         'controller' => 'Photos',
         'action' => 'Index' ],
 
-    'test' => [
+    'test/index' => [
         'controller' => 'Test',
         'action' => 'Index' ],
 
-    'aboutMe' => [
+    'aboutMe/index' => [
         'controller' => 'AboutMe',
         'action' => 'Index' ],
 
-    'history' => [
+    'history/index' => [
         'controller' => 'History',
         'action' => 'Index' ],
 
-    'myInterests' => [
+    'myInterests/index' => [
         'controller' => 'MyInterests',
         'action' => 'Index' ],
 
@@ -43,5 +43,13 @@ return [
 
     'guestBook/uploadBook' => [
         'controller' => 'GuestBook',
-        'action' => 'uploadBook' ]
+        'action' => 'uploadBook' ],
+
+    'myBlog/view' => [
+        'controller' => 'Blog',
+        'action' => 'Index' ],
+
+    'myBlog/edit' => [
+        'controller' => 'Blog',
+        'action' => 'Edit' ]
 ];

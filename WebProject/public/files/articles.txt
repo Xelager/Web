@@ -1,0 +1,26 @@
+@foreach (var item in Model)
+{
+#029c95
+<div class="card mb-2">
+    <div class="card-body">
+        <a class="title" href=@Url.Action("DetailArticle","Articles", new { Id=item.Id})>
+            @Html.DisplayFor(modelItem => item.Title)
+        </a>
+        <p>@Html.DisplayFor(modelItem => item.Content)</p>
+        @if (User.Identity.IsAuthenticated && item.AuthorId == User.FindFirstValue(ClaimTypes.NameIdentifier))
+        {
+            <a class="title" href=@Url.Action("Delete","Articles", new { Id=item.Id})>Удалить</a>
+        }
+    </div>
+</div>}
+
+
+<div class="form-group row">
+                <label name="@newImage" class="col-sm-2 col-form-label"></label>
+                <div class="col-sm-10">
+                    <div class="custom-file">
+                        <inp-ut type="file" name="@newImage" class="form-control">
+                        <label class="custom-file-label">Выберите файл...</label>
+                    </div>
+                </div>
+            </div>

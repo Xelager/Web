@@ -6,20 +6,23 @@ use PDO;
 use PDOException;
 
 class BaseActiveRecord {
-    public $pdo;
-    public $tablename;
-    public $dbfields = array();
+    public static $pdo;
+    protected static $tablename;
+    protected static $dbfields = array();
 
     public function __construct() {
-        $this->setupConnection();
-        $this->getFields();
+        if (!static::$tablename) {
+            return;
+        }
+        static::setupConnection();
+        static::getFields();
     }
 
     public function setupConnection() {
-        if (!isset($this->pdo)) {
+        if (!isset(static::$pdo)) {
             try {
                 $config = require 'app/config/dbData.php';
-                $this->pdo = new PDO("mysql:dbname=" . $config['name'] . "; host=" . $config['host'] . "; 
+                static::$pdo = new PDO("mysql:dbname=" . $config['name'] . "; host=" . $config['host'] . "; 
                 char-set=utf8", $config['user'], $config['password']);
             } catch (PDOException $ex) {
                 die("Error connection to data base: $ex->errorInfo");
@@ -28,19 +31,28 @@ class BaseActiveRecord {
     }
 
     public function getCount() {
-        $count = $this->pdo->query("SELECT COUNT(*) FROM " . $this->tablename)->fetch();
-        $count = (int)$count[0];
-        return $count;
+        $count = static::$pdo->query("SELECT COUNT(*) FROM " . static::$tablename)->fetch();
+        return (int)$count[0];
     }
 
-    public function getFields() {
-        $stmt = $this->pdo->query("SHOW FIELDS FROM " . $this->tablename);
+    public function getData() {
+        foreach (static::$dbfields as $field => $field_type) {
+            $value = $this->$field;
+            if (!str_contains($field_type, 'int')) $value = "'$value'";
+            $fields[] = $field;
+            $values[] = $value;
+        }
+        return [$values, $fields];
+    }
+
+    public static function getFields() {
+        $stmt = static::$pdo->query("SHOW FIELDS FROM " . static::$tablename);
         while ($row = $stmt->fetch()) {
-            $this->dbfields[$row['Field']] = $row['Type'];
+            static::$dbfields[$row['Field']] = $row['Type'];
         }
     }
 
-    function save() {
+    public function save() {
         [$values, $fields] = $this->getData();
 
         if (isset($this->id)) {
@@ -48,31 +60,31 @@ class BaseActiveRecord {
             for ($i = 0; $i < $countFields; $i++) {
                 $fields_list[] = $fields[$i] . ' = ' . $values[$i];
             }
-            $sql = "UPDATE " . $this->tablename . " SET " . join(', ', array_slice($fields_list, 1)) . " WHERE ID=" . $this->id;
+            $sql = "UPDATE " . static::$tablename . " SET " . join(', ', array_slice($fields_list, 1)) . " WHERE ID=" . $this->id;
         } else {
-            $sql = "INSERT INTO " . $this->tablename . " (" . join(', ', array_slice($fields, 1)) . ") VALUES(" . join(', ', array_slice($values, 1)) . ")";
+            $sql = "INSERT INTO " . static::$tablename . " (" . join(', ', array_slice($fields, 1)) . ") VALUES(" . join(', ', array_slice($values, 1)) . ")";
         }
 
-        return $this->pdo->query($sql);
+        return static::$pdo->query($sql);
     }
 
     public function find($id) {
-        $sql = "SELECT * FROM " . $this->tablename . " WHERE id=$id";
-        $stmt = $this->pdo->query($sql);
+        $sql = "SELECT * FROM " . static::$tablename . " WHERE id=$id";
+        $stmt = static::$pdo->query($sql);
         $row = $stmt->fetch(PDO::FETCH_ASSOC);
         if (!$row) {
             return null;
         }
-        $obj = new static();
+        $ar_obj = new static();
         foreach ($row as $key => $value) {
-            $obj->$key = $value;
+            $ar_obj->$key = $value;
         }
-        return $obj;
+        return $ar_obj;
     }
 
-    public function findAll($where = '') {
-        $sql = "SELECT * FROM " . $this->tablename . ' ' . $where;
-        $stmt = $this->pdo->query($sql);
+    public function findAll() {
+        $sql = "SELECT * FROM " . static::$tablename;
+        $stmt = static::$pdo->query($sql);
         $rows = $stmt->fetchAll(PDO::FETCH_ASSOC);
 
         if (!$rows) {
@@ -92,13 +104,38 @@ class BaseActiveRecord {
     }
 
     public function delete() {
-        $sql = "DELETE FROM " . $this->tablename . " WHERE ID=" . $this->id;
-        $stmt = $this->pdo->query($sql);
+        $sql = "DELETE FROM " . static::$tablename . " WHERE ID=" . $this->id;
+        $stmt = static::$pdo->query($sql);
         if ($stmt) {
             return true;
         } else {
-            print_r(value: $this->pdo->errorInfo());
+            print_r(static::$pdo->errorInfo());
             return false;
         }
+    }
+
+    public function getRecordsWithPagination($start, $count, $subSQL = '') {
+        $sql = "SELECT * FROM " . static::$tablename . ' ' . $subSQL . " LIMIT " . $start . ', ' . $count;
+        $stmt = static::$pdo->query($sql);
+        if (!$stmt)
+        {
+            return array();
+        }
+        $rows = $stmt->fetchAll(PDO::FETCH_ASSOC);
+
+        if (!$rows) {
+            return array();
+        }
+
+        $ar_objs = array();
+        foreach ($rows as $row) {
+            $obj = new static();
+            foreach ($row as $key => $value) {
+                $obj->$key = $value;
+            }
+            $ar_objs[] = $obj;
+        }
+
+        return $ar_objs;
     }
 }

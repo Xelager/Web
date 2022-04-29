@@ -15,7 +15,12 @@ class TestController extends Controller
     {
         if ($_SERVER["REQUEST_METHOD"] === "POST") {
             $this->model->validateForm($_POST);
+            if ($this->model->validator->isSuccessfulValidation)
+            {
+                $rating = $this->model->validator->checkAnswer($_POST);
+                $this->model->addNewElement($rating);
+            }
         }
-        $this->view->render('Contacts', $this->model);
+        $this->view->render('Test', $this->model);
     }
 }
