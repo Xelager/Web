@@ -2,6 +2,8 @@
 
 namespace app\core;
 
+if (session_status() !== PHP_SESSION_ACTIVE) session_start();
+
 class View
 {
     public $route;
@@ -13,7 +15,7 @@ class View
         $this->route = $route;
     }
 
-    public function render($title, $vars = []) {
+    public function render($title, $vars = [], $vars2 = []) {
         $this->path_content = 'app/views/'.$this->route['controller'].'View'.'.php';
         $path_view = $this->path_content;
         if (strcasecmp($this->route['controller'], 'home') != 0) {
@@ -25,5 +27,10 @@ class View
         } else {
             Router::Error404();
         }
+    }
+
+    public static function redirect($url) {
+        header('Location: ' . $url);
+        exit;
     }
 }

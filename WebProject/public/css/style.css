@@ -222,3 +222,7 @@ footer {
 ::-webkit-scrollbar-thumb:hover {
     background: #0066cc;
 }
+
+#clock {
+    right: 92% !important;
+}

@@ -5,10 +5,78 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="3db0ea4f-cab1-4488-90fa-5eb9d5d0757e" name="Changes" comment="">
+      <change afterPath="$PROJECT_DIR$/app/admin/controllers/GuestBookController.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/admin/controllers/HomeController.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/admin/controllers/MyBlogController.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/admin/controllers/ViewingHistory.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/admin/lib/route.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/admin/models/GuestBookModel.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/admin/models/MyBlogModel.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/admin/models/ViewingHistory.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/admin/views/blog/editor.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/admin/views/blog/sendCVS.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/admin/views/blog/show.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/admin/views/guestBook/sendBook.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/admin/views/guestBook/show.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/admin/views/layouts/layout.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/admin/views/main/show.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/admin/views/viewingHistory/show.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/controllers/AccountController.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/lib/route.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/user/controllers/AboutMe.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/user/controllers/Blog.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/user/controllers/Contact.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/user/controllers/Courses.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/user/controllers/GuestBook.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/user/controllers/Interests.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/user/controllers/Main.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/user/controllers/PhotoAlbum.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/user/controllers/Test.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/user/lib/route.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/user/models/Blog.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/user/models/Contact.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/user/models/GuestBook.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/user/models/Interests.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/user/models/PhotoAlbum.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/user/models/Test.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/user/views/Interests/show.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/user/views/aboutMe/show.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/user/views/blog/editor.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/user/views/blog/show.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/user/views/contact/show.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/user/views/courses/show.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/user/views/errors/403.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/user/views/errors/404.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/user/views/guestBook/show.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/user/views/layouts/layout.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/user/views/main/show.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/user/views/photoAlbum/show.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/user/views/test/show.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/config/routes.php" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/app/controllers/GuestBookController.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/controllers/GuestBookController.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/models/BlogModel.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/models/BlogModel.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/files/messages.inc.txt" beforeDir="false" afterPath="$PROJECT_DIR$/public/files/messages.inc.txt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/controllers/HomeController.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/controllers/HomeController.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/controllers/MyBlogController.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/controllers/MyBlogController.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/controllers/PhotosController.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/controllers/PhotosController.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/core/controller.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/core/controller.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/core/model.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/core/model.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/core/router.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/core/router.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/core/view.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/core/view.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/models/BlogModel.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/models/MyBlogModel.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/views/AboutMeView.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/views/AboutMeView.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/views/ContactsView.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/views/ContactsView.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/views/EducationView.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/views/EducationView.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/views/GuestBookView.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/views/GuestBookView.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/views/HistoryView.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/views/HistoryView.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/views/HomeView.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/views/HomeView.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/views/MyBlogView.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/views/MyBlogView.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/views/MyInterestsView.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/views/MyInterestsView.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/views/PhotosView.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/views/PhotosView.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/views/TemplateView.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/views/TemplateView.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/views/TestView.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/views/TestView.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/index.php" beforeDir="false" afterPath="$PROJECT_DIR$/index.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/css/style.css" beforeDir="false" afterPath="$PROJECT_DIR$/public/css/style.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/js/Scripts/clock.js" beforeDir="false" afterPath="$PROJECT_DIR$/public/js/Scripts/clock.js" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -61,7 +129,7 @@
     <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
     <property name="WebServerToolWindowFactoryState" value="false" />
     <property name="com.jetbrains.php.phpunit.codeGeneration.PhpNewTestDialog.defaultLibrary" value="PHPUnit" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/app/admin/models" />
     <property name="node.js.detected.package.eslint" value="true" />
     <property name="node.js.detected.package.tslint" value="true" />
     <property name="node.js.selected.package.eslint" value="(autodetect)" />
@@ -72,17 +140,17 @@
   </component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
+      <recent name="F:\GitHubProjects\Web\WebProject\app\admin\models" />
+      <recent name="F:\GitHubProjects\Web\WebProject\app\admin\controllers" />
+      <recent name="F:\GitHubProjects\Web\WebProject\app" />
       <recent name="F:\GitHubProjects\Web\WebProject\app\views" />
       <recent name="F:\GitHubProjects\Web\WebProject\public\files" />
-      <recent name="F:\GitHubProjects\Web\WebProject\app\models" />
-      <recent name="F:\GitHubProjects\Web\WebProject\app\models\vaidators" />
-      <recent name="F:\GitHubProjects\Web\WebProject\views" />
     </key>
     <key name="MoveFile.RECENT_KEYS">
+      <recent name="F:\GitHubProjects\Web\WebProject\app\lib" />
       <recent name="F:\GitHubProjects\Web\WebProject\app\core" />
       <recent name="F:\GitHubProjects\Web\WebProject\app" />
       <recent name="F:\GitHubProjects\Web\WebProject\public" />
-      <recent name="F:\GitHubProjects\Web\WebProject\app\lib" />
     </key>
   </component>
   <component name="RunManager" selected="PHP Web Page.Appache">

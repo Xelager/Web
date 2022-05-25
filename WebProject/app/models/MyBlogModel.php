@@ -6,7 +6,7 @@ use app\core\Model;
 use app\models\entities\Blog;
 use app\models\validators\BlogValidator;
 
-class BlogModel extends Model
+class MyBlogModel extends Model
 {
     public $table;
     public $numberPage = 0;

@@ -4,6 +4,7 @@
 <div>
     <header class="border-nav fixed-top navbar-expand-sm">
         <nav class="navbar navbar-light bg-white">
+            <div id="clock" class="navbar-brand-font px-0 py-2"></div>
             <div class="container-fluid align-content-center justify-content-center">
                 <div class="d-flex align-items-center py-2">
                     <div>
@@ -55,7 +56,6 @@
                                     </li>
                                 </ul>
                             </li>
-                            <li id="clock" class="nav-item px-0 py-2"></li>
                         </ul>
                     </div>
                 </div>
@@ -77,7 +77,7 @@
                 </div>
                 <div class="d-flex flex-column gap-3 text-guestBook pb-3">
                     <?php
-                    $records = $vars->getRecords(2);
+                    $records = $vars->getRecords(10);
                     foreach ($records as $value) {
                         echo '<div class="card">';
                         echo '<div class="card-header d-flex justify-content-between" style="font-size: 18px">';

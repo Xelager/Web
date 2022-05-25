@@ -1,6 +1,7 @@
 <div>
     <header class="border-nav fixed-top navbar-expand-sm">
         <nav class="navbar navbar-light bg-white">
+            <div id="clock" class="navbar-brand-font px-0 py-2"></div>
             <div class="container-fluid align-content-center justify-content-center">
                 <div class="d-flex align-items-center py-2">
                     <div>
@@ -52,7 +53,6 @@
                                     </li>
                                 </ul>
                             </li>
-                            <li id="clock" class="nav-item px-0 py-2"></li>
                         </ul>
                     </div>
                 </div>

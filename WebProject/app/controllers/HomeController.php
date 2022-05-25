@@ -6,6 +6,6 @@ class HomeController extends Controller
 {
     function indexAction()
     {
-        $this->view->render('Main');
+        $this->view->render('Главная страница');
     }
 }

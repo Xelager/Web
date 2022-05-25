@@ -24,20 +24,4 @@ class GuestBookController extends Controller
 
         $this->view->render('GuestBook', $this->model);
     }
-
-    public function uploadBookAction() {
-        $data = "";
-        if ($_SERVER["REQUEST_METHOD"] === "POST") {
-
-            if (strcmp($_FILES['feedbackFile']['type'], 'text/plane'))
-            {
-                $data = $this->model->uploadBook($_FILES['feedbackFile']) ? "Файл сохранён" :
-                    "Ошибка при сохранении файла";
-            }
-        }
-
-        setcookie('Data', $data, time() + 1);
-        header('Location: ' . '../guestBook/index', true, false);
-        exit();
-    }
 }
