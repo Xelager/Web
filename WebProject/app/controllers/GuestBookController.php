@@ -28,7 +28,8 @@ class GuestBookController extends Controller
     public function uploadBookAction() {
         $data = "";
         if ($_SERVER["REQUEST_METHOD"] === "POST") {
-            if ($_FILES['feedbackFile']['type'] == 'text/plane' && $_FILES['feedbackFile']['name'] == 'messages.inc.txt')
+
+            if (strcmp($_FILES['feedbackFile']['type'], 'text/plane'))
             {
                 $data = $this->model->uploadBook($_FILES['feedbackFile']) ? "Файл сохранён" :
                     "Ошибка при сохранении файла";

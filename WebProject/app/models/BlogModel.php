@@ -106,12 +106,13 @@ class BlogModel extends Model
         $arrEl = array();
         $el = array();
         $fd = fopen($file, "r") or die("Файл нельзя открыть");
-
+        
         while (($data = fgetcsv($fd, 1000, ";")) !== FALSE) {
-            $el['title'] = $data[0];
-            $el['content'] = $data[1];
-            $el['imageUrl'] = $data[2];
-            $el['createdAt'] = $data[3];
+            $el['id'] = $data[0];
+            $el['title'] = $data[1];
+            $el['content'] = $data[2];
+            $el['imageUrl'] = $data[3];
+            $el['createdAt'] = $data[4];
             $arrEl[] = $el;
         }
         fclose($fd);
@@ -124,7 +125,7 @@ class BlogModel extends Model
         $record->title = $title;
         $record->content = $content;
         $record->imageUrl = $imageUrl;
-        $record->createdAt = date($createdAt);
+        $record->createdAt = $createdAt;
         return $record->addViaPrepare();
     }
 }
