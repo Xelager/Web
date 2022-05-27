@@ -3,7 +3,7 @@
 namespace app\admin\controllers;
 
 use app\core\Controller;
-use app\models\MyBlogModel;
+use app\admin\models\MyBlogModel;
 
 class MyBlogController extends Controller
 {
@@ -23,7 +23,7 @@ class MyBlogController extends Controller
             }
         }
 
-        $this->view->render('MyBlog', $this->model);
+        $this->view->render('myBlog', $this->model);
     }
 
     function loadFileAction()

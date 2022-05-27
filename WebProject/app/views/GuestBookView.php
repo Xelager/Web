@@ -1,11 +1,16 @@
 <link rel='stylesheet' href='../../public/css/validInput.css'>
 <link rel='stylesheet' href='../../public/css/dateOfBirth.css'>
 <link rel='stylesheet' href='../../public/css/popup.css'>
+<svg xmlns="http://www.w3.org/2000/svg" style="display: none;">
+    <symbol id="exclamation-triangle-fill" fill="currentColor" viewBox="0 0 16 16">
+        <path d="M8.982 1.566a1.13 1.13 0 0 0-1.96 0L.165 13.233c-.457.778.091 1.767.98 1.767h13.713c.889 0 1.438-.99.98-1.767L8.982 1.566zM8 5c.535 0 .954.462.9.995l-.35 3.507a.552.552 0 0 1-1.1 0L7.1 5.995A.905.905 0 0 1 8 5zm.002 6a1 1 0 1 1 0 2 1 1 0 0 1 0-2z"/>
+    </symbol>
+</svg>
 <div>
     <header class="border-nav fixed-top navbar-expand-sm">
         <nav class="navbar navbar-light bg-white">
             <div id="clock" class="navbar-brand-font px-0 py-2"></div>
-            <div class="container-fluid align-content-center justify-content-center">
+            <div class="main-container align-content-center justify-content-center">
                 <div class="d-flex align-items-center py-2">
                     <div>
                         <a class="navbar-brand" href="/">
@@ -22,19 +27,10 @@
                                 <a class="nav-link nav-color px-0" href="../myBlog/view"><i class="fa-brands fa-microblog"></i> Мой блог</a>
                             </li>
                             <li class="nav-item">
-                                <a class="nav-link nav-color px-0" href="../education/index"><i class="fas fa-graduation-cap"></i> Учёба</a>
-                            </li>
-                            <li class="nav-item">
                                 <a class="nav-link nav-color px-0" href="../photos/index"><i class="far fa-images"></i> Фотоальбом</a>
                             </li>
                             <li class="nav-item">
                                 <a class="nav-link nav-color px-0" href="../contacts/index"><i class="far fa-address-book"></i> Контакты</a>
-                            </li>
-                            <li class="nav-item">
-                                <a class="nav-link nav-color px-0" href="../test/index"><i class="far fa-file-alt"></i> Тест</a>
-                            </li>
-                            <li class="nav-item">
-                                <a class="nav-link nav-color px-0" href="../history/index"><i class="fas fa-history"></i> История</a>
                             </li>
                             <li class="nav-item">
                                 <a class="nav-link btn-orange px-2" href="../guestBook/index"><i class="fa-solid fa-book-open-cover"></i> Гостевая книга</a>
@@ -58,6 +54,14 @@
                             </li>
                         </ul>
                     </div>
+                    <div class="d-flex authorization-nav">
+                        <a class="navbar-brand" href="../account/login">
+                            <span class="nav-font lazur-outline-btn">Войти</span>
+                        </a>
+                        <a class="navbar-brand" href="../account/register">
+                            <span class="nav-font lazur-outline-btn">Регистрация</span>
+                        </a>
+                    </div>
                 </div>
             </div>
         </nav>
@@ -67,7 +71,6 @@
             <div class="form text-about js-form-validate">
                 <h1 class="card-title d-flex text-about-header justify-content-center mt-0">Гостевая книга</h1>
                 <h3 class="title text-about-header mt-0 mb-3">Отзывы</h3>
-                <?php include 'app/views/InputFileView.php'; ?>
                 <form method="post">
                 <div class="d-flex flex-column gap-3 text-guestBook pb-3">
                     <?php
@@ -86,37 +89,12 @@
                 </div>
                 <hr />
                 <h4 class="title text-about-header mt-0">Написать отзыв</h4>
-                <div class="d-flex gap-3">
-                    <div class="some-form__line col <?php echo $vars->validator->errMessages['lastName'] ?>">
-                        <input id="lastName" value="<?php echo $vars->validated_fields['lastName'] ?>" title="Пример: Иванов" type="text" name="lastName" placeholder="Фамилия *" data-validate>
-                        <span class="some-form__hint-succesfull">Отлично</span>
-                        <span class="some-form__hint"><?php echo $vars->validator->errMessages['lastNameError'] ?></span>
+                    <div class="alert alert-warning d-flex align-items-center" role="alert">
+                        <svg class="bi flex-shrink-0 me-2" width="24" height="24" role="img" aria-label="Warning:"><use xlink:href="#exclamation-triangle-fill"/></svg>
+                        <div>
+                            Для написания отзыва нужно <a class="alert-link" href="../account/register">зарегистрироваться</a> или <a class="alert-link" href="../account/login">авторизоваться</a>
+                        </div>
                     </div>
-                    <div class="some-form__line col <?php echo $vars->validator->errMessages['firstName'] ?>">
-                        <input id="firstName" value="<?php echo $vars->validated_fields['firstName'] ?>" title="Пример: Иван" type="text" name="firstName" placeholder="Имя *" data-validate>
-                        <span class="some-form__hint-succesfull">Отлично</span>
-                        <span class="some-form__hint"><?php echo $vars->validator->errMessages['firstNameError'] ?></span>
-                    </div>
-                    <div class="some-form__line col <?php echo $vars->validator->errMessages['patronymic'] ?>">
-                        <input id="patronymic" value="<?php echo $vars->validated_fields['patronymic'] ?>" title="Пример: Иванович" type="text" name="patronymic" placeholder="Отчество *" data-validate>
-                        <span class="some-form__hint-succesfull">Отлично</span>
-                        <span class="some-form__hint"><?php echo $vars->validator->errMessages['patronymicError'] ?></span>
-                    </div>
-                </div>
-                <div class="some-form__line <?php echo $vars->validator->errMessages['email'] ?>">
-                    <input id="mail" title="Пример: ivan@mail.ru" type="email" name="email" placeholder="E-mail *" value="<?php echo $vars->validated_fields['email'] ?>" data-validate>
-                    <span class="some-form__hint-succesfull">Отлично</span>
-                    <span class="some-form__hint"><?php echo $vars->validator->errMessages['emailError'] ?></span>
-                </div>
-                <div class="some-form__line <?php echo $vars->validator->errMessages['feedback'] ?>">
-                    <textarea id="feedback" type="text" title="Пример: Да он крут!"  name="feedback" placeholder="Отзыв *" data-validate rows="5"><?php echo $vars->validated_fields['feedback'] ?></textarea>
-                    <span class="some-form__hint-succesfull">Отлично</span>
-                    <span class="some-form__hint"><?php echo $vars->validator->errMessages['feedbackError'] ?></span>
-                </div>
-                <div class="d-flex gap-3 some-form__submit align-items-center pt-3">
-                    <input id="formSubmit" type="submit" value="Оставить отзыв" class="button button_submit button-wide">
-                    <button type="reset" value="reset" class="button_submit inter-button-text button-wide">Очистить поля</button>
-                </div>
             </form>
             </div>
         </div>

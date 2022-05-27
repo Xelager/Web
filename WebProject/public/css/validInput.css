@@ -5,6 +5,7 @@
 select[id="inputAgeStateId"],
 input[type="text"],
 input[type="tel"],
+input[type="password"],
 input[type="email"]{
   display: block;
   padding: 0 17px;

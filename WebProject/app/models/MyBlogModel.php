@@ -28,31 +28,6 @@ class MyBlogModel extends Model
         $this->validator = new BlogValidator();
     }
 
-    function validateForm($post_data)
-    {
-        unset($post_data["submit"]);
-
-        foreach ($this->validated_fields as $key => $data)
-        {
-            if (!empty($post_data[$key])) {
-                if ($key == "imageFile")
-                {
-                    $this->validated_fields[$key] = $_FILES['imageFile'];
-                } else {
-                    $this->validated_fields[$key] = $post_data[$key];
-                }
-            }
-        }
-        return $this->validator->validate($this->validated_fields);
-    }
-
-    function validateFile($post_data)
-    {
-        unset($post_data["submit"]);
-        $this->validate_file["csvFile"] = $_FILES['csvFile'];
-        return $this->validator->validateFile($this->validate_file);
-    }
-
     function getRecords($countOnPage)
     {
         $countRecords = $this->table->getCount();
@@ -79,53 +54,5 @@ class MyBlogModel extends Model
         else {
             return 0;
         }
-    }
-
-    public function AddNewRecord()
-    {
-        $record = new Blog();
-        $record->title = $_POST['title'];
-        $record->content = $_POST['content'];
-        $fileUrl = trim($_FILES['imageFile']["name"]) ? $this->getBlogFileUrl($_FILES['imageFile']) : null;
-        if ($fileUrl != null)
-        {
-            $record->imageUrl = ('/'.$fileUrl);
-        }
-        $record->createdAt = date('y.m.d h:i:s');
-        return $record->save();
-    }
-
-    private function getBlogFileUrl($file)
-    {
-        $serverFilePath = "public/img/blog/" . uniqid() . $file["name"];
-        move_uploaded_file($file["tmp_name"], $serverFilePath);
-        return $serverFilePath;
-    }
-
-    public function getFromCSV($file) {
-        $arrEl = array();
-        $el = array();
-        $fd = fopen($file, "r") or die("Файл нельзя открыть");
-        
-        while (($data = fgetcsv($fd, 1000, ";")) !== FALSE) {
-            $el['id'] = $data[0];
-            $el['title'] = $data[1];
-            $el['content'] = $data[2];
-            $el['imageUrl'] = $data[3];
-            $el['createdAt'] = $data[4];
-            $arrEl[] = $el;
-        }
-        fclose($fd);
-
-        return $arrEl;
-    }
-
-    public function AddViaPrepare($title, $content, $imageUrl, $createdAt) {
-        $record = new Blog();
-        $record->title = $title;
-        $record->content = $content;
-        $record->imageUrl = $imageUrl;
-        $record->createdAt = $createdAt;
-        return $record->addViaPrepare();
     }
 }

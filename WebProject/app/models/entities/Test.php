@@ -17,7 +17,7 @@ class Test extends BaseActiveRecord
 
     function __construct()
     {
-        self::$tablename = 'TestAlgorithm';
+        $this->tablename = 'TestAlgorithm';
         parent::__construct();
     }
 }

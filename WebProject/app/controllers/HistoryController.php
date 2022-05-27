@@ -6,6 +6,6 @@ class HistoryController extends Controller
 {
     function indexAction()
     {
-        $this->view->render('History');
+        $this->view->render('history');
     }
 }

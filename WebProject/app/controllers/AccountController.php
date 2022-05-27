@@ -9,48 +9,55 @@ class AccountController extends Controller
     private $adminsLog = [
         [
             'login' => 'admin',
-            'password' => 'LJBsmGDZkjeN3Tr68xV7qCHPdauSXURc',
+            'password' => '21232f297a57a5a743894a0e4a801fc3',
             'name' => 'Газукин Александр Сергеевич'
         ],
     ];
 
     public function registerAction() {
-
+        $vars2 = [];
         if (!empty($_POST)) {
-            $this->model->validate_registration_Action();
-            if (empty($this->model->validation->Errors))
-                $this->addNewUser();
+            $this->model->validateForm($_POST);
+            if ($this->model->validator->isSuccessfulValidation)
+            {
+                if ($this->model->table->existsLogin($_POST["login"]))
+                {
+                    $vars2["error"] = "Такой пользователь уже существует, укажите другой логин";
+                } else {
+                    $this->addNewUser();
+                }
+            }
         }
 
-        $this->view->render('Регистрация', $this->model);
+        $this->view->render('register', $this->model, $vars2);
     }
 
     public function loginAction() {
         $vars = [];
         if (!empty($_POST)) {
-            if ($this->model->existsUser($_POST["login"], $_POST["password"])) {
+            if ($this->model->table->existsUser($_POST["login"], $_POST["password"])) {
                 if ($this->isAdmin())
+                {
                     $_SESSION['user']['isAdmin'] = 1;
-                $this->view->redirect("../Home/index");
+                }
+                $this->view->redirect("../home/index");
             } else {
                 $vars["errors"] = ["User not found" => "Не удаётся найти пользователя"];
             }
         }
 
-        $this->view->render('Логин', $vars);
+        $this->view->render('login', $vars);
     }
 
-    public function addNewUser() {
-        if ($this->model->existsLogin($_POST["login"]))
-            echo "<div class='error'>Текущий логин уже занят, Выберите другой</div><br>";
+    private function addNewUser()
+    {
+        if ($this->model->table->saveUser($_POST["name"], $_POST["login"], $_POST["email"], $_POST["password"]))
+            $this->view->redirect("../home/index");
         else
-            if ($this->model->saveUser($_POST["name"], $_POST["login"], $_POST["email"], $_POST["password"]))
-                $this->view->redirect("../home/index");
-            else
-                echo "Что-то пошло не так, вас не смогли сохранить в базу данных";
+            echo "Failed to save user data in database";
     }
 
-    public function isAdmin() {
+    private function isAdmin() {
         foreach ($this->adminsLog as $value) {
             if ($_SESSION['user']['login'] == $value["login"] && $_SESSION['user']['password'] == $value['password'])
                 return true;

@@ -1,12 +1,12 @@
 <?php
 return [
-    'Home' => ['index' => 'Главная страница'],
-    'ViewingHistory' => ['show' => 'История просмотров'],
-    'GuestBook' => [
+    'home' => ['index' => 'Главная страница'],
+    'history' => ['index' => 'История просмотров'],
+    'guestBook' => [
         'index' => 'Гостевая книга',
         'uploadBook' => 'Загрузка гостевой книги'
     ],
-    'MyBlog' => [
+    'myBlog' => [
         'view' => 'Мой Блог',
         'loadFile' => 'Загрузка сообщений блога',
     ],

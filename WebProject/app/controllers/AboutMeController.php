@@ -6,6 +6,6 @@ class AboutMeController extends Controller
 {
     function indexAction()
     {
-        $this->view->render('About me');
+        $this->view->render('aboutMe');
     }
 }

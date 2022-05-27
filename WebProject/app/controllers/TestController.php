@@ -21,6 +21,6 @@ class TestController extends Controller
                 $this->model->addNewElement($rating);
             }
         }
-        $this->view->render('Test', $this->model);
+        $this->view->render('test', $this->model);
     }
 }

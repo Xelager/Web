@@ -16,6 +16,6 @@ class ContactsController extends Controller
         if ($_SERVER["REQUEST_METHOD"] === "POST") {
             $this->model->validateForm($_POST);
         }
-        $this->view->render('Contacts', $this->model);
+        $this->view->render('contacts', $this->model);
     }
 }

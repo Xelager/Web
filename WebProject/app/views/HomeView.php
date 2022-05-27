@@ -20,8 +20,8 @@ $pages = require 'app/lib/route.php';
     <script src="../../public/js/Scripts/myInterestsDropMenu.js"></script>
     <script src="../../public/js/Scripts/clock.js"></script>
     <link rel="stylesheet" href="../../public/css/background.css">
-    <title><?php if (isset($title)) {
-            echo $title;
+    <title><?php if (isset($pages[$this->route['controller']][$this->route['action']])) {
+            echo $pages[$this->route['controller']][$this->route['action']];
         } ?></title>
 </head>
 
@@ -30,7 +30,7 @@ $pages = require 'app/lib/route.php';
     <header class="border-nav fixed-top navbar-expand-sm">
         <nav class="navbar navbar-light bg-white">
             <div id="clock" class="navbar-brand-font px-0 py-2"></div>
-            <div class="container-fluid align-content-center justify-content-center">
+            <div class="main-container align-content-center justify-content-center">
                 <div class="d-flex align-items-center py-2">
                     <div>
                         <a class="navbar-brand" href="/">
@@ -47,19 +47,10 @@ $pages = require 'app/lib/route.php';
                                 <a class="nav-link nav-color px-0" href="../myBlog/view"><i class="fa-brands fa-microblog"></i> Мой блог</a>
                             </li>
                             <li class="nav-item">
-                                <a class="nav-link nav-color px-0" href="../education/index"><i class="fas fa-graduation-cap"></i> Учёба</a>
-                            </li>
-                            <li class="nav-item">
                                 <a class="nav-link nav-color px-0" href="../photos/index"><i class="far fa-images"></i> Фотоальбом</a>
                             </li>
                             <li class="nav-item">
                                 <a class="nav-link nav-color px-0" href="../contacts/index"><i class="far fa-address-book"></i> Контакты</a>
-                            </li>
-                            <li class="nav-item">
-                                <a class="nav-link nav-color px-0" href="../test/index"><i class="far fa-file-alt"></i> Тест</a>
-                            </li>
-                            <li class="nav-item">
-                                <a class="nav-link nav-color px-0" href="../history/index"><i class="fas fa-history"></i> История</a>
                             </li>
                             <li class="nav-item">
                                 <a class="nav-link nav-color px-0" href="../guestBook/index"><i class="fa-solid fa-book-open-cover"></i> Гостевая книга</a>
@@ -83,6 +74,26 @@ $pages = require 'app/lib/route.php';
                             </li>
                         </ul>
                     </div>
+                    <?php
+                        if (isset($_SESSION['user']))
+                        {
+                            echo '<div class="d-flex align-items-center gap-3 authorization-nav">';
+                            echo '<span class="nav-font">'.$_SESSION["user"]["name"].'</span>';
+                            echo '<a class="navbar-brand" href="../account/login">';
+                            echo '<span class="nav-font lazur-outline-btn">Выйти</span>';
+                            echo '</a>';
+                            echo '</div>';
+                        } else
+                        {
+                            echo '<div class="d-flex authorization-nav">';
+                            echo '<a class="navbar-brand" href="../account/login">';
+                            echo '<span class="nav-font lazur-outline-btn">Войти</span></a>';
+                            echo '<a class="navbar-brand" href="../account/register">';
+                            echo '<span class="nav-font lazur-outline-btn">Регистрация</span>';
+                            echo '</a>';
+                            echo '</div>';
+                        }
+                    ?>
                 </div>
             </div>
         </nav>

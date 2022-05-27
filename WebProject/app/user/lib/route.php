@@ -1,15 +1,12 @@
 <?php
 return [
-    'Main' => ['show' => 'Главная страница'],
-    'AboutMe' => ['show' => 'Обо мне'],
-    'Interests' => ['show' => 'Мои интересы'],
-    'Courses' => ['show' => 'Учёба'],
-    'Test' => ['show' => 'Тест'],
-    'PhotoAlbum' => ['show' => 'Фотоальбом'],
-    'Contact' => ['show' => 'Контакт'],
-    'GuestBook' => ['show' => 'Гостевая книга'],
-    'Blog' => [
-        'show' =>  'Блоги',
-        'editor' => 'Редактор блога',
-    ],
+    'home' => ['index' =>  'Главная страница'],
+    'photos' => ['index' => 'Фотоальбом'],
+    'contacts' => ['index' =>  'Контакты'],
+    'guestBook' => ['index' =>  'Гостевая книга'],
+    'myBlog' => ['view' => 'Мой блог'],
+    'myInterests' => ['index' => 'Мои интересы'],
+    'aboutMe' => ['index' => 'Обо мне'],
+    'education' => ['index' => 'Обучение'],
+    'test' => ['index' => 'Тест']
 ];

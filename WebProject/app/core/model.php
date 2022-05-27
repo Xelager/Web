@@ -17,4 +17,10 @@ class Model
     {
         $this->validator->validate($data);
     }
+
+    public function logOut()
+    {
+        if (isset($_SESSION['user']))
+            unset($_SESSION['user']);
+    }
 }

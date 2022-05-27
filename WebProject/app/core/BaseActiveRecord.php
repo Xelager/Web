@@ -7,15 +7,15 @@ use PDOException;
 
 class BaseActiveRecord {
     public static $pdo;
-    protected static $tablename;
-    protected static $dbfields = array();
+    protected $tablename;
+    protected $dbfields = array();
 
     public function __construct() {
-        if (!static::$tablename) {
+        if (!$this->tablename) {
             return;
         }
         static::setupConnection();
-        static::getFields();
+        $this->getFields();
     }
 
     public function setupConnection() {
@@ -31,12 +31,12 @@ class BaseActiveRecord {
     }
 
     public function getCount() {
-        $count = static::$pdo->query("SELECT COUNT(*) FROM " . static::$tablename)->fetch();
+        $count = static::$pdo->query("SELECT COUNT(*) FROM " . $this->tablename)->fetch();
         return (int)$count[0];
     }
 
     public function getData() {
-        foreach (static::$dbfields as $field => $field_type) {
+        foreach ($this->dbfields as $field => $field_type) {
             $value = $this->$field;
             if (!str_contains($field_type, 'int')) $value = "'$value'";
             $fields[] = $field;
@@ -45,10 +45,10 @@ class BaseActiveRecord {
         return [$values, $fields];
     }
 
-    public static function getFields() {
-        $stmt = static::$pdo->query("SHOW FIELDS FROM " . static::$tablename);
+    public function getFields() {
+        $stmt = static::$pdo->query("SHOW FIELDS FROM " . $this->tablename);
         while ($row = $stmt->fetch()) {
-            static::$dbfields[$row['Field']] = $row['Type'];
+            $this->dbfields[$row['Field']] = $row['Type'];
         }
     }
 
@@ -60,16 +60,16 @@ class BaseActiveRecord {
             for ($i = 0; $i < $countFields; $i++) {
                 $fields_list[] = $fields[$i] . ' = ' . $values[$i];
             }
-            $sql = "UPDATE " . static::$tablename . " SET " . join(', ', array_slice($fields_list, 1)) . " WHERE ID=" . $this->id;
+            $sql = "UPDATE " . $this->tablename . " SET " . join(', ', array_slice($fields_list, 1)) . " WHERE ID=" . $this->id;
         } else {
-            $sql = "INSERT INTO " . static::$tablename . " (" . join(', ', array_slice($fields, 1)) . ") VALUES(" . join(', ', array_slice($values, 1)) . ")";
+            $sql = "INSERT INTO " . $this->tablename . " (" . join(', ', array_slice($fields, 1)) . ") VALUES(" . join(', ', array_slice($values, 1)) . ")";
         }
 
         return static::$pdo->query($sql);
     }
 
     public function find($id) {
-        $sql = "SELECT * FROM " . static::$tablename . " WHERE id=$id";
+        $sql = "SELECT * FROM " . $this->tablename . " WHERE id=$id";
         $stmt = static::$pdo->query($sql);
         $row = $stmt->fetch(PDO::FETCH_ASSOC);
         if (!$row) {
@@ -83,7 +83,7 @@ class BaseActiveRecord {
     }
 
     public function findAll() {
-        $sql = "SELECT * FROM " . static::$tablename;
+        $sql = "SELECT * FROM " . $this->tablename;
         $stmt = static::$pdo->query($sql);
         $rows = $stmt->fetchAll(PDO::FETCH_ASSOC);
 
@@ -104,7 +104,7 @@ class BaseActiveRecord {
     }
 
     public function delete() {
-        $sql = "DELETE FROM " . static::$tablename . " WHERE ID=" . $this->id;
+        $sql = "DELETE FROM " . $this->tablename . " WHERE ID=" . $this->id;
         $stmt = static::$pdo->query($sql);
         if ($stmt) {
             return true;
@@ -115,7 +115,7 @@ class BaseActiveRecord {
     }
 
     public function getRecordsWithPagination($start, $count, $subSQL = '') {
-        $sql = "SELECT * FROM " . static::$tablename . ' ' . $subSQL . " LIMIT " . $start . ', ' . $count;
+        $sql = "SELECT * FROM " . $this->tablename . ' ' . $subSQL . " LIMIT " . $start . ', ' . $count;
         $stmt = static::$pdo->query($sql);
         if (!$stmt)
         {

@@ -9,15 +9,20 @@ class Router {
     protected array $routes = [];
 
     public function __construct() {
-        $this->routes['controller'] = $_REQUEST["controller"] ?? "Home";
+        $this->routes['controller'] = $_REQUEST["controller"] ?? "home";
         $this->routes['action'] = $_REQUEST['action'] ?? "index";
 
-        if ($this->routes['controller'] == 'Account') {
+        if ($this->routes['controller'] == 'account') {
             if (isset($_SESSION['user']))
+            {
                 unset($_SESSION['user']);
-        } else
-            if (!$this->isAvailablePage($this->routes['controller']))
                 View::redirect("../home/index");
+            }
+        } else {
+            if (!$this->isAvailablePage($this->routes['controller'])) {
+                View::redirect("../home/index");
+            }
+        }
 
         $this->setUserPath();
         $this->routes['controllerPath'] = "app\\{$this->routes['additional_path']}controllers\\{$this->routes['controller']}Controller";
@@ -46,7 +51,6 @@ class Router {
     }
 
     public function isAvailablePage($page) {
-
         if (isset($_SESSION['user']['isAdmin']))
             $pages = require 'app/admin/lib/route.php';
         elseif (isset($_SESSION['user']))

@@ -14,7 +14,7 @@ class Blog extends BaseActiveRecord
 
     function __construct()
     {
-        self::$tablename = 'MyBlog';
+        $this->tablename = 'MyBlog';
         parent::__construct();
     }
 

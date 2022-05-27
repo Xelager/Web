@@ -15,6 +15,6 @@ class MyInterestsController extends Controller
 
     function indexAction()
     {
-        $this->view->render('My interests', $this->myInterestsModel);
+        $this->view->render('myInterests', $this->myInterestsModel);
     }
 }

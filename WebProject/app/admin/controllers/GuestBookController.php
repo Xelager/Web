@@ -3,7 +3,7 @@
 namespace app\admin\controllers;
 
 use app\core\Controller;
-use app\models\GuestBookModel;
+use app\admin\models\GuestBookModel;
 
 class GuestBookController extends Controller
 {
@@ -22,7 +22,7 @@ class GuestBookController extends Controller
             }
         }
 
-        $this->view->render('GuestBook', $this->model);
+        $this->view->render('guestBook', $this->model);
     }
 
     public function uploadBookAction() {

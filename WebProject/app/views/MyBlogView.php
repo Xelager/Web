@@ -5,7 +5,7 @@
     <header class="border-nav fixed-top navbar-expand-sm">
         <nav class="navbar navbar-light bg-white">
             <div id="clock" class="navbar-brand-font px-0 py-2"></div>
-            <div class="container-fluid align-content-center justify-content-center">
+            <div class="main-container align-content-center justify-content-center">
                 <div class="d-flex align-items-center py-2">
                     <div>
                         <a class="navbar-brand" href="/">
@@ -22,19 +22,10 @@
                                 <a class="nav-link btn-orange px-2" href="../myBlog/view"><i class="fa-brands fa-microblog"></i> Мой блог</a>
                             </li>
                             <li class="nav-item">
-                                <a class="nav-link nav-color px-0" href="../education/index"><i class="fas fa-graduation-cap"></i> Учёба</a>
-                            </li>
-                            <li class="nav-item">
                                 <a class="nav-link nav-color px-0" href="../photos/index"><i class="far fa-images"></i> Фотоальбом</a>
                             </li>
                             <li class="nav-item">
                                 <a class="nav-link nav-color px-0" href="../contacts/index"><i class="far fa-address-book"></i> Контакты</a>
-                            </li>
-                            <li class="nav-item">
-                                <a class="nav-link nav-color px-0" href="../test/index"><i class="far fa-file-alt"></i> Тест</a>
-                            </li>
-                            <li class="nav-item">
-                                <a class="nav-link nav-color px-0" href="../history/index"><i class="fas fa-history"></i> История</a>
                             </li>
                             <li class="nav-item">
                                 <a class="nav-link nav-color px-0" href="../guestBook/index"><i class="fa-solid fa-book-open-cover"></i> Гостевая книга</a>
@@ -58,6 +49,14 @@
                             </li>
                         </ul>
                     </div>
+                    <div class="d-flex authorization-nav">
+                        <a class="navbar-brand" href="../account/login">
+                            <span class="nav-font lazur-outline-btn">Войти</span>
+                        </a>
+                        <a class="navbar-brand" href="../account/register">
+                            <span class="nav-font lazur-outline-btn">Регистрация</span>
+                        </a>
+                    </div>
                 </div>
             </div>
         </nav>
@@ -66,15 +65,6 @@
         <div class="some-form">
             <div class="form text-about js-form-validate">
                 <h1 class="card-title d-flex text-about-header justify-content-center mt-0 mb-3">Мой блог</h1>
-                <?php include 'app/views/InputCSVFileView.php'; ?>
-                <a class="btn btn-primary mb-3" data-bs-toggle="collapse" href="#collapseExample" role="button" aria-expanded="false" aria-controls="collapseExample">
-                    Редактор блога
-                </a>
-                <div class="collapse mb-4" id="collapseExample">
-                    <div class="card card-body">
-                        <?php include 'app/views/EditBlogView.php'; ?>
-                    </div>
-                </div>
                 <div class="d-flex flex-column gap-3 text-guestBook pb-3">
                     <?php
                     $records = $vars->getRecords(10);

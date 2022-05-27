@@ -6,6 +6,6 @@ class EducationController extends Controller
 {
     function indexAction()
     {
-        $this->view->render('Education');
+        $this->view->render('education');
     }
 }

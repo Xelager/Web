@@ -15,7 +15,7 @@
     <header class="border-nav fixed-top navbar-expand-sm">
         <nav class="navbar navbar-light bg-white">
             <div id="clock" class="navbar-brand-font px-0 py-2"></div>
-            <div class="container-fluid align-content-center justify-content-center">
+            <div class="main-container align-content-center justify-content-center">
                 <div class="d-flex align-items-center py-2">
                     <div>
                         <a class="navbar-brand" href="/">
@@ -32,19 +32,10 @@
                                 <a class="nav-link nav-color px-0" href="../myBlog/view"><i class="fa-brands fa-microblog"></i> Мой блог</a>
                             </li>
                             <li class="nav-item">
-                                <a class="nav-link nav-color px-0" href="../education/index"><i class="fas fa-graduation-cap"></i> Учёба</a>
-                            </li>
-                            <li class="nav-item">
                                 <a class="nav-link btn-orange px-2" href="../photos/index"><i class="far fa-images"></i> Фотоальбом</a>
                             </li>
                             <li class="nav-item">
                                 <a class="nav-link nav-color px-0" href="../contacts/index"><i class="far fa-address-book"></i> Контакты</a>
-                            </li>
-                            <li class="nav-item">
-                                <a class="nav-link nav-color px-0" href="../test/index"><i class="far fa-file-alt"></i> Тест</a>
-                            </li>
-                            <li class="nav-item">
-                                <a class="nav-link nav-color px-0" href="../history/index"><i class="fas fa-history"></i> История</a>
                             </li>
                             <li class="nav-item">
                                 <a class="nav-link nav-color px-0" href="../guestBook/index"><i class="fa-solid fa-book-open-cover"></i> Гостевая книга</a>
@@ -67,6 +58,14 @@
                                 </ul>
                             </li>
                         </ul>
+                    </div>
+                    <div class="d-flex authorization-nav">
+                        <a class="navbar-brand" href="../account/login">
+                            <span class="nav-font lazur-outline-btn">Войти</span>
+                        </a>
+                        <a class="navbar-brand" href="../account/register">
+                            <span class="nav-font lazur-outline-btn">Регистрация</span>
+                        </a>
                     </div>
                 </div>
             </div>

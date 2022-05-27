@@ -15,6 +15,6 @@ class PhotosController extends Controller
 
     function indexAction()
     {
-        $this->view->render('Фотоальбом', $this->photosModel);
+        $this->view->render('photos', $this->photosModel);
     }
 }

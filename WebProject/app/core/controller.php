@@ -2,12 +2,14 @@
 
 namespace app\core;
 
+use app\models\entities\StatisticRecord;
+
 if (session_status() !== PHP_SESSION_ACTIVE) session_start();
 
 class Controller
 {
     public $route;
-    public $tableStatistic;
+    public $statiscticRecordTable;
     public View $view;
     public Model $model;
 
@@ -19,8 +21,8 @@ class Controller
             $this->model = new $route['modelPath'];
 
         if (isset($_SESSION['user']) && !isset($_SESSION['user']['isAdmin'])) {
-            $this->tableStatistic = new Statistics;
-            $this->tableStatistic->saveStatistic($route['controller'] . '/' . $route['action']);
+            $this->statiscticRecordTable = new StatisticRecord();
+            $this->statiscticRecordTable->saveStatisticRecord($route['controller'] . '/' . $route['action']);
         }
     }
 }

@@ -15,6 +15,6 @@ class MyBlogController extends Controller
 
     function viewAction()
     {
-        $this->view->render('MyBlog', $this->model);
+        $this->view->render('myBlog', $this->model);
     }
 }

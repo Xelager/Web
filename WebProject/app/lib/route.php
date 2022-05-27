@@ -6,5 +6,10 @@ return [
     'guestBook' => ['index' =>  'Гостевая книга'],
     'myBlog' => ['view' => 'Мой блог'],
     'myInterests' => ['index' => 'Мои интересы'],
-    'aboutMe' => ['index' => 'Обо мне']
+    'aboutMe' => ['index' => 'Обо мне'],
+    'education' => ['index' => 'Обучение'],
+    'account' => [
+        'login' => 'Логин',
+        'register' => 'Регистрация'
+    ],
 ];

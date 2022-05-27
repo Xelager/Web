@@ -71,16 +71,8 @@ class GuestBookModel extends Model
             if (!trim($arr["feedback"])) continue;
             $records[$key] = $arr;
         }
-        usort($records, array('app\models\GuestBookModel', 'compare'));
+        usort($records, array('app\admin\models\GuestBookModel', 'compare'));
         return $records ?? [];
-    }
-
-    public function saveFeedback() {
-        $message = PHP_EOL . date('d.m.y h:m') . ';' . $_POST["lastName"] . ';' . $_POST["firstName"] . ';' .
-            $_POST["patronymic"] . ';' . $_POST["email"] . ';' . $_POST["feedback"];
-        if (!fwrite($this->file, $message)) {
-            echo "Ошибка записи в файл: " . $this->path;
-        }
     }
 
     private function compare($first, $second)

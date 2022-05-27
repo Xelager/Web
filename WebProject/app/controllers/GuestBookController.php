@@ -22,6 +22,6 @@ class GuestBookController extends Controller
             }
         }
 
-        $this->view->render('GuestBook', $this->model);
+        $this->view->render('guestBook', $this->model);
     }
 }

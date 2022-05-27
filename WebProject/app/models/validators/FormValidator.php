@@ -2,6 +2,7 @@
 namespace app\models\validators;
 
 const MIN_WORD = 15;
+const MIN_LINE = 5;
 
 class FormValidator
 {
@@ -23,8 +24,23 @@ class FormValidator
         'isWord' => 'Строка должна быть длиннее',
         'isTextFile' => 'Данный файл должен быть .txt',
         'isImageFile' => 'Данный файл должен быть .png .jpg .jpeg',
-        'isCSVFile' => 'Данный файл должен быть .csv'
+        'isCSVFile' => 'Данный файл должен быть .csv',
+        'isString' => 'Пароль должен содержать символы и цифры (0-9)',
+        'isMoreCharacters' => 'Поле должно содержать больше символов',
+        'isOneWord' => 'Поле не должно иметь пробелов'
     ];
+
+    public function isOneWord($data) {
+        return !(bool)strpos(trim($data), ' ');
+    }
+
+    public function isString($data) {
+        return !is_numeric($data);
+    }
+
+    public function isMoreCharacters($data, $size) {
+        return strlen($data) > $size;
+    }
 
     public function isTextFile($file) {
         return $file["type"] == "text/plane";
@@ -109,12 +125,14 @@ class FormValidator
                 break;
             case "isNotEmpty":
             case "isEmail":
+            case "isString":
             case "isInteger":
             case "isPhone":
             case "isDate":
             case "isFIO":
             case "isWord":
             case "isImageFile":
+            case "isOneWord":
             case "isTextFile":
             case "isCSVFile" :{
                     $result = $this->setValidateResult($rule_name, $value);
@@ -123,6 +141,13 @@ class FormValidator
             case "isMinWord":
             {
                 if ($this->isMinWord($value, MIN_WORD)) {
+                    $result = $this->validateMessage[$rule_name];
+                }
+                break;
+            }
+            case "isMoreCharacters":
+            {
+                if (!$this->isMoreCharacters($value, MIN_LINE)) {
                     $result = $this->validateMessage[$rule_name];
                 }
                 break;

@@ -106,6 +106,19 @@
     color: #7b61ff !important;
 }
 
+.lazur-outline-btn {
+    border: 1px solid #CFCFCF;
+    color: #828282 !important;
+    padding: 8px 16px;
+    border-radius: 8px;
+}
+
+.lazur-outline-btn:hover {
+    border: 1px solid #00a6eb;
+    background: #00a6eb !important;
+    color: white !important;
+}
+
 .lazur-link:hover {
     color: #6447ff !important;
 }
@@ -225,4 +238,19 @@ footer {
 
 #clock {
     right: 92% !important;
+}
+
+.authorization-container {
+    margin-top: 10em !important;
+    margin-left: auto !important;
+    margin-right: auto !important;
+    width: 80em
+}
+
+.main-container {
+    margin-left: auto;
+    margin-right: auto;
+}
+.authorization-nav {
+    margin-left: 2.5em;
 }
