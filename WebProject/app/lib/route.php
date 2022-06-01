@@ -10,6 +10,7 @@ return [
     'education' => ['index' => 'Обучение'],
     'account' => [
         'login' => 'Логин',
+        'submitRegister' => 'Регистрация',
         'register' => 'Регистрация'
     ],
 ];

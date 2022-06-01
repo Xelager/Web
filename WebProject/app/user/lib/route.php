@@ -7,6 +7,5 @@ return [
     'myBlog' => ['view' => 'Мой блог'],
     'myInterests' => ['index' => 'Мои интересы'],
     'aboutMe' => ['index' => 'Обо мне'],
-    'education' => ['index' => 'Обучение'],
     'test' => ['index' => 'Тест']
 ];

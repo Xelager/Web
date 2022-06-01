@@ -3,6 +3,8 @@
 namespace app\controllers;
 
 use app\core\Controller;
+use app\core\View;
+use SimpleXMLElement;
 
 class AccountController extends Controller
 {
@@ -32,8 +34,31 @@ class AccountController extends Controller
         $this->view->render('register', $this->model, $vars2);
     }
 
+    public function submitRegisterAction()
+    {
+        $xmlString = file_get_contents('php://input');
+        $xml = simplexml_load_string($xmlString, null, LIBXML_NOCDATA);
+        $json = json_encode($xml);
+        $array = json_decode($json, TRUE);
+        $vars2 = [];
+        if (!empty($array)) {
+            $this->model->validateForm($array);
+            if ($this->model->validator->isSuccessfulValidation)
+            {
+                if ($this->model->table->existsLogin($array["login"]))
+                {
+                    $vars2["error"] = "Такой пользователь уже существует, укажите другой логин";
+                } else {
+                    $vars2["redirect"] = $this->addNewUser($array['name'], $array['login'], $array['email'], $array['password']);
+                }
+            }
+        }
+        $vars2["model"] = $this->model;
+        echo json_encode($vars2);
+    }
+
     public function loginAction() {
-        $vars = [];
+        $vars2 = [];
         if (!empty($_POST)) {
             if ($this->model->table->existsUser($_POST["login"], $_POST["password"])) {
                 if ($this->isAdmin())
@@ -42,19 +67,21 @@ class AccountController extends Controller
                 }
                 $this->view->redirect("../home/index");
             } else {
-                $vars["errors"] = ["User not found" => "Не удаётся найти пользователя"];
+                $vars2["error"] = "Неправильный логин или пароль";
             }
         }
 
-        $this->view->render('login', $vars);
+        $this->view->render('login', $this->model, $vars2);
     }
 
-    private function addNewUser()
+    private function addNewUser($name, $login, $email, $password)
     {
-        if ($this->model->table->saveUser($_POST["name"], $_POST["login"], $_POST["email"], $_POST["password"]))
-            $this->view->redirect("../home/index");
-        else
-            echo "Failed to save user data in database";
+        if ($this->model->table->saveUser($name, $login, $email, $password)) {
+            return "../account/login";
+        }
+        else {
+            return "";
+        }
     }
 
     private function isAdmin() {

@@ -20,9 +20,6 @@
                                 <a class="nav-link nav-color px-0" href="../myBlog/view"><i class="fa-brands fa-microblog"></i> Мой блог</a>
                             </li>
                             <li class="nav-item">
-                                <a class="nav-link nav-color px-0" href="../education/index"><i class="fas fa-graduation-cap"></i> Учёба</a>
-                            </li>
-                            <li class="nav-item">
                                 <a class="nav-link nav-color px-0" href="../photos/index"><i class="far fa-images"></i> Фотоальбом</a>
                             </li>
                             <li class="nav-item">
@@ -113,16 +110,14 @@
                     <span class="some-form__hint my-2"><?php echo $vars->validator->errMessages['question3Error'] ?></span>
                 </div>
                 <br>
-                <div class="some-form__line <?php echo $vars->validator->errMessages['FIO'] ?>">
-                    <input id="FioId" value="<?php echo $vars->validated_fields['FIO'] ?>" title="Пример: Иванов Иван Иванович" type="text" name="FIO" placeholder="Ваше ФИО *" data-validate>
-                    <span class="some-form__hint-succesfull">Отлично</span>
-                    <span class="some-form__hint"><?php echo $vars->validator->errMessages['FIOError'] ?></span>
-                </div>
-                <div class="some-form__line <?php echo $vars->validator->errMessages['email'] ?>">
-                    <input id="mail" title="Пример: ivan@mail.ru" type="email" name="email" placeholder="E-mail *" value="<?php echo $vars->validated_fields['email'] ?>" data-validate>
-                    <span class="some-form__hint-succesfull">Отлично</span>
-                    <span class="some-form__hint"><?php echo $vars->validator->errMessages['emailError'] ?></span>
-                </div>
+                <input id="FioId" value="<?php if (!trim($_SESSION['user']['name']))
+                {
+                    echo $_SESSION['user']['name'];
+                } else
+                {
+                    echo $_SESSION['user']['login'];
+                }?>" type="hidden" name="FIO">
+                <input id="mail" type="hidden" name="email" value="<?php echo $_SESSION['user']['email']; ?>">
                 <div class="d-flex gap-3 some-form__submit align-items-center">
                     <button type="submit" value="Отправить" class="button button_submit button-wide">Отправить</button>
                     <button type="reset" value="reset" class="button_submit inter-button-text button-wide">Очистить поля</button>

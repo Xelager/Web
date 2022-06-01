@@ -87,6 +87,9 @@
                         }
                         echo '<p class="card-text" style="font-weight: 500; font-size: 16px">'.$value->content.'</p>';
                         echo '</div>';
+                        echo '<div class="d-flex justify-content-end py-3 px-3">
+                    <a href="#" class="text-guestBook">Добавить комментарий</a>
+                </div>';
                         echo '</div>';
                     } ?>
                 </div>

@@ -27,7 +27,6 @@ class Router {
         $this->setUserPath();
         $this->routes['controllerPath'] = "app\\{$this->routes['additional_path']}controllers\\{$this->routes['controller']}Controller";
         $this->routes['modelPath'] = "app\\{$this->routes['additional_path']}models\\{$this->routes['controller']}Model";
-
         $this->run();
     }
 

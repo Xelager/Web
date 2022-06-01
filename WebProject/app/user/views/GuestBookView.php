@@ -22,9 +22,6 @@
                                 <a class="nav-link nav-color px-0" href="../myBlog/view"><i class="fa-brands fa-microblog"></i> Мой блог</a>
                             </li>
                             <li class="nav-item">
-                                <a class="nav-link nav-color px-0" href="../education/index"><i class="fas fa-graduation-cap"></i> Учёба</a>
-                            </li>
-                            <li class="nav-item">
                                 <a class="nav-link nav-color px-0" href="../photos/index"><i class="far fa-images"></i> Фотоальбом</a>
                             </li>
                             <li class="nav-item">

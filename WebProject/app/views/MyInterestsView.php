@@ -58,12 +58,12 @@
             </div>
         </nav>
     </header>
-    <div class="btn-group d-flex flex-column mx-4 text-about-header anchor" role="group" aria-label="Basic radio toggle button group">
-        <a href="#top" class="btn btn-outline-warning" style="font-size: 18px !important;">Вверх</a>
-        <a href="#mySerial" class="btn btn-outline-warning" style="font-size: 18px !important;">1. Мои любимые сериалы</a>
-        <a href="#myHobby" class="btn btn-outline-warning" style="font-size: 18px !important;">2. Мои хобби</a>
-        <a href="#myBooks" class="btn btn-outline-warning" style="font-size: 18px !important;">3. Мои любимые книги</a>
-        <a href="#myGames" class="btn btn-outline-warning" style="font-size: 18px !important;">4. Мои любимые игры</a>
+    <div class="btn-group d-flex flex-column mx-4 gap-2 text-about-header anchor p-2" style="background-color: white; border-radius: 8px;"  role="group" aria-label="Basic radio toggle button group">
+        <a href="#top" class="btn btn-outline-primary" style="font-size: 18px !important; border-radius: 6px;">Вверх</a>
+        <a href="#mySerial"  class="btn btn-outline-primary" style="font-size: 18px !important; border-radius: 6px;">1. Мои любимые сериалы</a>
+        <a href="#myHobby" class="btn btn-outline-primary" style="font-size: 18px !important; border-radius: 6px;">2. Мои хобби</a>
+        <a href="#myBooks" class="btn btn-outline-primary" style="font-size: 18px !important; border-radius: 6px;">3. Мои любимые книги</a>
+        <a href="#myGames" class="btn btn-outline-primary" style="font-size: 18px !important; border-radius: 6px;">4. Мои любимые игры</a>
     </div>
     <div class="d-flex border-common justify-content-center">
         <div class="card text-about margin-text">

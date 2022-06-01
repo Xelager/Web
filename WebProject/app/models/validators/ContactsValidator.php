@@ -12,7 +12,7 @@ class ContactsValidator extends FormValidator
     ];
 
     public $statements = [
-        "FIO" => ["isNotEmpty", "isFIO"],
+        "FIO" => ["isNotEmpty"],
         "gender" => ["isNotEmpty"],
         "email" => ["isNotEmpty", "isEmail"],
         "phone" => ["isNotEmpty", "isPhone"],

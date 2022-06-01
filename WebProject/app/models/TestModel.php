@@ -11,8 +11,6 @@ class TestModel extends Model {
     public $countPages = 0;
 
     public array $validated_fields = [
-        "FIO" => "",
-        "email" => "",
         "question1" => "",
         "question2" => "",
         "question3" => ""

@@ -70,7 +70,7 @@
                     $records = $vars->getRecords(10);
                     foreach ($records as $value) {
                         echo '<div class="card">';
-                        echo '<div class="card-header d-flex justify-content-between" style="font-size: 18px">';
+                        echo '<div class="card-header d-flex justify-content-between" style="font-size: 18px;">';
                         echo '<div>Название: ' .$value->title.'</div>';
                         echo '<div>Дата написания: '. $value->createdAt.'</div>';
                         echo'</div>';
@@ -79,7 +79,7 @@
                         {
                             echo '<img src="'. $value->imageUrl. '" class="image-blog my-3 mx-auto d-block" alt="Картинки не существует">';
                         }
-                        echo '<p class="card-text" style="font-weight: 500; font-size: 16px">'.$value->content.'</p>';
+                        echo '<p class="card-text" style="font-weight: 500; font-size: 16px;">'.$value->content.'</p>';
                         echo '</div>';
                         echo '</div>';
                     } ?>

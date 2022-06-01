@@ -128,3 +128,4 @@
             </form>
         </div>
     </div>
+    <script src="../../public/js/Scripts/dateOfBirth.js"></script>

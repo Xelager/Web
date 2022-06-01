@@ -98,7 +98,7 @@ class PhotosModel extends Model
             "description" => "Красивая природа"
         ],
         [
-            "path" => '././public/img/photos/16.jpg',
+            "path" => '../../public/img/photos/16.jpg',
             "title" => 'Приозёрное шоссе',
             "alt" => "Альтернативный текст",
             "description" => "Красивая природа"
