@@ -36,17 +36,19 @@ function showErrors(result) {
         loginDiv.classList.add(result["model"]["validator"]["errMessages"]["login"]);
         loginError.textContent = result["model"]["validator"]["errMessages"]["loginError"];
     } else {
-        loginDiv.classList.remove("some-form__line-required");
-        loginDiv.classList.add(result["model"]["validator"]["errMessages"]["login"]);
-        loginError.textContent = "";
+        if (result['error'] && result['error'].replace(/\s/g, '').length !== 0) {
+            loginDiv.classList.remove("some-form__line-succesfull");
+            loginDiv.classList.add("some-form__line-required");
+            loginError.textContent = result['error'];
+        } else
+        {
+            loginDiv.classList.remove("some-form__line-required");
+            loginDiv.classList.add(result["model"]["validator"]["errMessages"]["login"]);
+            loginError.textContent = "";
+        }
     }
 
-    if (result['error'] && result['error'].replace(/\s/g, '').length !== 0) {
-        alert.classList.remove("display-alert");
-        existLogin.innerHTML = result['error'];
-    } else {
-        alert.classList.add("display-alert");
-    }
+
 }
 
 function buildXmlFromForm(form) {

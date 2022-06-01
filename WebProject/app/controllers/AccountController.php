@@ -43,14 +43,18 @@ class AccountController extends Controller
         $vars2 = [];
         if (!empty($array)) {
             $this->model->validateForm($array);
-            if ($this->model->validator->isSuccessfulValidation)
+            $isExistsLogin = false;
+
+            if (!trim($this->model->validator->errMessages["loginError"]))
             {
-                if ($this->model->table->existsLogin($array["login"]))
-                {
+                $isExistsLogin = $this->model->table->existsLogin($array["login"]);
+                if ($isExistsLogin) {
                     $vars2["error"] = "Такой пользователь уже существует, укажите другой логин";
-                } else {
-                    $vars2["redirect"] = $this->addNewUser($array['name'], $array['login'], $array['email'], $array['password']);
                 }
+            }
+
+            if ($this->model->validator->isSuccessfulValidation && !$isExistsLogin) {
+                $vars2["redirect"] = $this->addNewUser($array['name'], $array['login'], $array['email'], $array['password']);
             }
         }
         $vars2["model"] = $this->model;
