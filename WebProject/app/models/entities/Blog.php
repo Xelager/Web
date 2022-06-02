@@ -14,8 +14,13 @@ class Blog extends BaseActiveRecord
 
     function __construct()
     {
-        $this->tablename = 'MyBlog';
+        $this->tablename = 'myBlog';
         parent::__construct();
+    }
+
+    public function existsPublicationById($id) {
+        $stmt = static::$pdo->query("SELECT * FROM " . $this->tablename . " WHERE id='$id'");
+        return (bool)$stmt->fetch();
     }
 
     public function addViaPrepare() {

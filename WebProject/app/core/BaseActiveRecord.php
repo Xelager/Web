@@ -14,6 +14,7 @@ class BaseActiveRecord {
         if (!$this->tablename) {
             return;
         }
+
         static::setupConnection();
         $this->getFields();
     }
@@ -127,6 +128,30 @@ class BaseActiveRecord {
         }
         $rows = $stmt->fetchAll(PDO::FETCH_ASSOC);
 
+        if (!$rows) {
+            return array();
+        }
+
+        $ar_objs = array();
+        foreach ($rows as $row) {
+            $obj = new static();
+            foreach ($row as $key => $value) {
+                $obj->$key = $value;
+            }
+            $ar_objs[] = $obj;
+        }
+
+        return $ar_objs;
+    }
+
+    public function getRecordsFromByField($fieldName, $fieldValue, $subSQL = '') {
+        $sql = "SELECT * FROM " . $this->tablename . " WHERE $fieldName=$fieldValue " . $subSQL;
+        $stmt = static::$pdo->query($sql);
+        if (!$stmt)
+        {
+            return array();
+        }
+        $rows = $stmt->fetchAll(PDO::FETCH_ASSOC);
         if (!$rows) {
             return array();
         }

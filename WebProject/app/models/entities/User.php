@@ -15,7 +15,7 @@ class User extends BaseActiveRecord
     public $validation;
 
     function __construct() {
-        $this->tablename = 'UserData';
+        $this->tablename = 'userData';
         parent::__construct();
     }
 
@@ -30,6 +30,11 @@ class User extends BaseActiveRecord
 
     public function existsLogin($login) {
         $stmt = static::$pdo->query("SELECT * FROM " . $this->tablename . " WHERE login='$login'");
+        return (bool)$stmt->fetch();
+    }
+
+    public function existsUserById($id) {
+        $stmt = static::$pdo->query("SELECT * FROM " . $this->tablename . " WHERE id='$id'");
         return (bool)$stmt->fetch();
     }
 

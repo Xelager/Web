@@ -18,6 +18,23 @@ body {
   width: 30%;
 }
 
+#addComment:hover {
+    color: #777777 !important;
+}
+
+.modal {
+    backdrop-filter: blur(6px);
+}
+
+.card-header {
+    font-size: 18px;
+}
+
+.card-text {
+    font-weight: 500;
+    font-size: 16px !important;
+}
+
 .display-alert {
     display: none !important;
 }
@@ -69,17 +86,17 @@ body {
     text-align: center;
     font-weight: 600;
     line-height: 1;
-    background: #DC3545;
+    background: #e52b50;
     color: #fff;
-    border: 2px solid #DC3545;
+    border: 2px solid #e52b50;
     border-radius: 3px;
-    box-shadow: 0 20px 43px rgba(168, 40, 53,.35);
+    box-shadow: 0 20px 43px rgba(168, 40, 53,.1);
     transition: all .3s ease;
 }
 
 .inter-button-text:hover {
-  background: #BB2D3B;
-  border-color: #BB2D3B;
+  background: #c34d64;
+  border-color: #c34d64;
 }
 
 .nav-color {

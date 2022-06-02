@@ -46,7 +46,7 @@
             <div class="form text-about js-form-validate">
                 <h1 class="card-title d-flex text-about-header justify-content-center mt-0 mb-3">Мой блог</h1>
                 <?php include 'app/admin/views/InputCSVFileView.php'; ?>
-                <a class="btn btn-primary mb-3" data-bs-toggle="collapse" href="#collapseExample" role="button" aria-expanded="false" aria-controls="collapseExample">
+                <a class="btn btn-primary mb-3" data-bs-toggle="collapse" href="#collapseExample" role="button" aria-expanded="true" aria-controls="collapseExample">
                     Редактор блога
                 </a>
                 <div class="collapse mb-4" id="collapseExample">

@@ -181,7 +181,7 @@ textarea {
   color: #fff;
   border: 2px solid #19b5ca;
   border-radius: 3px;
-  box-shadow: 0 20px 43px rgba(18, 159, 178, .35);
+  box-shadow: 0 20px 43px rgba(18, 159, 178, .1);
   transition: all .3s ease;
 }
 

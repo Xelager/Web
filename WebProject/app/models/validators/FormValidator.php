@@ -178,7 +178,6 @@ class FormValidator
         $this->statements = $statements;
         foreach ($post_array as $pkey => $value) {
             $rules = $this->statements[$pkey];
-            echo (in_array("NotRequired", $rules));
             if ($value == null && in_array("NotRequired", $rules)) {
                 continue 1;
             }

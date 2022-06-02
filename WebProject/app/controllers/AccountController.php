@@ -17,21 +17,8 @@ class AccountController extends Controller
     ];
 
     public function registerAction() {
-        $vars2 = [];
-        if (!empty($_POST)) {
-            $this->model->validateForm($_POST);
-            if ($this->model->validator->isSuccessfulValidation)
-            {
-                if ($this->model->table->existsLogin($_POST["login"]))
-                {
-                    $vars2["error"] = "Такой пользователь уже существует, укажите другой логин";
-                } else {
-                    $this->addNewUser();
-                }
-            }
-        }
 
-        $this->view->render('register', $this->model, $vars2);
+        $this->view->render('register', $this->model);
     }
 
     public function submitRegisterAction()
@@ -80,6 +67,11 @@ class AccountController extends Controller
 
     private function addNewUser($name, $login, $email, $password)
     {
+        if ($name == null || is_array($name) || trim($name))
+        {
+            $name = stristr($email, (string)"@", true);
+        }
+
         if ($this->model->table->saveUser($name, $login, $email, $password)) {
             return "../account/login";
         }
