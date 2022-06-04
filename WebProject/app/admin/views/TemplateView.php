@@ -16,7 +16,10 @@ $pages = require 'app/admin/lib/route.php';
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Amatic+SC:wght@700&family=Gemunu+Libre:wght@700&family=Inter:wght@500;600;700&family=Open+Sans:ital,wght@1,500;1,600&display=swap" rel="stylesheet">
-    <script src="../../public/js/Scripts/myInterestsDropMenu.js"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+    <script src='https://cdnjs.cloudflare.com/ajax/libs/jquery.inputmask/3.3.4/inputmask/inputmask.min.js'></script>
+    <script src='https://cdnjs.cloudflare.com/ajax/libs/jquery.inputmask/3.3.4/inputmask/jquery.inputmask.min.js'></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" crossorigin="anonymous"></script>
     <script src="../../public/js/Scripts/clock.js"></script>
     <title><?php if (isset($pages[$this->route['controller']][$this->route['action']])) {
             echo $pages[$this->route['controller']][$this->route['action']];
@@ -34,16 +37,5 @@ $pages = require 'app/admin/lib/route.php';
                         </div>
                     </footer>
                 </div>
-                <script src="../../public/js/Scripts/storageAboutMe.js"></script>
-                <script src="../../public/js/Scripts/dateOfBirth.js"></script>
-                <script src="../../public/js/Scripts/storageContact.js"></script>
-                <script src="../../public/js/Scripts/storageEducation.js"</script>
-                <script src="../../public/js/Scripts/storageInterests.js"></script>
-                <script src='https://cdnjs.cloudflare.com/ajax/libs/jquery/3.1.1/jquery.min.js'></script>
-                <script src='https://cdnjs.cloudflare.com/ajax/libs/jquery.inputmask/3.3.4/inputmask/inputmask.min.js'></script>
-                <script src='https://cdnjs.cloudflare.com/ajax/libs/jquery.inputmask/3.3.4/inputmask/jquery.inputmask.min.js'></script>
-                <script src="../../public/js/Scripts/popup.js"></script>
-                <script src="../../public/js/Scripts/storagePhotos.js"></script>
-                <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" crossorigin="anonymous"></script>
 </body>
 </html>

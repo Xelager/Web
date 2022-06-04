@@ -23,8 +23,6 @@ $pages = require 'app/lib/route.php';
     <script src="../../public/js/Scripts/popup.js"></script>
     <script src="../../public/js/Scripts/myInterestsDropMenu.js"></script>
     <script src="../../public/js/Scripts/clock.js"></script>
-    <script src="../../public/js/Scripts/myInterestsDropMenu.js"></script>
-    <script src="../../public/js/Scripts/clock.js"></script>
     <title><?php if (isset($pages[$this->route['controller']][$this->route['action']])) {
             echo $pages[$this->route['controller']][$this->route['action']];
         } ?></title>
@@ -41,10 +39,5 @@ $pages = require 'app/lib/route.php';
                         </div>
                     </footer>
                 </div>
-                <script src="../../public/js/Scripts/storageAboutMe.js"></script>
-                <script src="../../public/js/Scripts/dateOfBirth.js"></script>
-                <script src="../../public/js/Scripts/storageContact.js"></script>
-                <script src="../../public/js/Scripts/storageEducation.js"</script>
-                <script src="../../public/js/Scripts/storageInterests.js"></script>
 </body>
 </html>

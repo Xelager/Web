@@ -1,6 +1,4 @@
 <link rel='stylesheet' href='../../public/css/validInput.css'>
-<link rel='stylesheet' href='../../public/css/dateOfBirth.css'>
-<link rel='stylesheet' href='../../public/css/popup.css'>
 <div>
     <header class="border-nav fixed-top navbar-expand-sm">
         <nav class="navbar navbar-light bg-white">
@@ -99,7 +97,7 @@
                     echo '<p class="card-text">' . $value->content . '</p>';
                     echo '</div>';
                     echo '<div class="d-flex justify-content-end py-3 px-3">
-                    <a id="modal' . $value->id . '" type="button" data-bs-toggle="modal" data-bs-target="#commentModal' . $value->id . '" class="text-decoration-none text-dark text-guestBook">Добавить комментарий</a>
+                    <a id="modal' . $value->id . '" type="button" data-bs-toggle="modal" data-bs-target="#commentModal' . $value->id . '" class="myBlog-link text-decoration-none text-dark text-guestBook">Добавить комментарий</a>
                 </div>'; ?>
                 </div>
                 <div id="commentariesNotation<?php echo $value->id; ?>" style="display: none !important;" class="d-flex pt-3 pb-2 text-guestBook">
@@ -143,7 +141,7 @@
                                 <input id="formSubmit" type="submit" value="Отправить"
                                        class="button button_submit button-wide">
                                 <button type="button" class="button_submit inter-button-text button-wide"
-                                        data-bs-dismiss="modal">Close
+                                        data-bs-dismiss="modal">Закрыть
                                 </button>
                             </div>
                         </div>

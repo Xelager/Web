@@ -18,7 +18,7 @@ body {
   width: 30%;
 }
 
-#addComment:hover {
+.myBlog-link:hover {
     color: #777777 !important;
 }
 
@@ -33,6 +33,7 @@ body {
 .card-text {
     font-weight: 500;
     font-size: 16px !important;
+    text-indent: 40px;
 }
 
 .display-alert {
@@ -185,7 +186,7 @@ body {
     margin-left: 15em;
 }
 
-.card-text {
+.card-text-indent {
    text-indent: 40px;
 }
 

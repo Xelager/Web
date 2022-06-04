@@ -79,7 +79,7 @@
                 <?php
                 $myInterests = $vars->getData();
                 foreach ($myInterests as $key => $myInterest) {
-                  echo '<h3 class="card-text d-flex text-about-header mt-5">'.$key.'</h3>';
+                  echo '<h3 class="card-text-indent d-flex text-about-header mt-5">'.$key.'</h3>';
                   echo $myInterest['content'];
                   $elemsOnLine = 3;
                   $count = 0;

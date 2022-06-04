@@ -44,10 +44,5 @@ $pages = require 'app/lib/route.php';
                         </div>
                     </footer>
                 </div>
-                <script src="../../public/js/Scripts/storageAboutMe.js"></script>
-                <script src="../../public/js/Scripts/storageContact.js"></script>
-                <script src="../../public/js/Scripts/storageEducation.js"</script>
-                <script src="../../public/js/Scripts/storageInterests.js"></script>
-                <script src="../../public/js/Scripts/storagePhotos.js"></script>
 </body>
 </html>

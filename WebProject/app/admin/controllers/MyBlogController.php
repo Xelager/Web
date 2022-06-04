@@ -4,13 +4,17 @@ namespace app\admin\controllers;
 
 use app\core\Controller;
 use app\admin\models\MyBlogModel;
+use app\models\CommentModel;
 
 class MyBlogController extends Controller
 {
+    public $commentModel;
+
     public function __construct($route)
     {
         parent::__construct($route);
         $this->model = new MyBlogModel();
+        $this->commentModel = new CommentModel();
     }
 
     function viewAction()
@@ -23,7 +27,7 @@ class MyBlogController extends Controller
             }
         }
 
-        $this->view->render('myBlog', $this->model);
+        $this->view->render('myBlog', $this->model, $this->commentModel);
     }
 
     function loadFileAction()
@@ -38,6 +42,32 @@ class MyBlogController extends Controller
 
         header('Location: ' . '../myBlog/view', true, false);
         exit();
+    }
+
+    public function editPublicationAction()
+    {
+        $users = [
+            1 => [
+                'avatar_url' => '/examples/ajax/img-01.jpg',
+                'name' => 'Александр Мухин',
+                'email' => 'alexander@mail.ru',
+                'location' => 'Россия'
+            ],
+            2 => [
+                'avatar_url' => '/examples/ajax/img-02.jpg',
+                'name' => 'Евгений Смирнов',
+                'email' => 'evgeniy@gmail.com',
+                'location' => 'Украина'
+            ],
+            3 => [
+                'avatar_url' => '/examples/ajax/img-03.jpg',
+                'name' => 'Ольга Соколова',
+                'email' => 'olga@yandex.ru',
+                'location' => 'Россия'
+            ]
+        ];
+
+        echo json_encode($users);
     }
 
     private function loadingCSV() {

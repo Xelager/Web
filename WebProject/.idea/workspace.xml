@@ -5,22 +5,18 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="3db0ea4f-cab1-4488-90fa-5eb9d5d0757e" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/app/models/CommentModel.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/app/models/entities/Comment.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/app/models/validators/CommentValidator.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/admin/controllers/MyBlogController.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/admin/controllers/MyBlogController.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/admin/lib/route.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/admin/lib/route.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/app/admin/views/MyBlogView.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/admin/views/MyBlogView.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/controllers/AccountController.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/controllers/AccountController.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/core/BaseActiveRecord.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/core/BaseActiveRecord.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/models/entities/Blog.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/models/entities/Blog.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/models/entities/User.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/models/entities/User.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/models/validators/FormValidator.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/models/validators/FormValidator.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/user/controllers/MyBlogController.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/user/controllers/MyBlogController.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/user/lib/route.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/user/lib/route.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/admin/views/TemplateView.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/admin/views/TemplateView.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/models/MyInterestsModel.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/models/MyInterestsModel.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/app/user/views/MyBlogView.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/user/views/MyBlogView.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/user/views/MyInterestsView.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/user/views/MyInterestsView.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/app/user/views/TemplateView.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/user/views/TemplateView.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/views/MyInterestsView.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/views/MyInterestsView.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/views/TemplateView.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/views/TemplateView.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/public/css/style.css" beforeDir="false" afterPath="$PROJECT_DIR$/public/css/style.css" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/css/validInput.css" beforeDir="false" afterPath="$PROJECT_DIR$/public/css/validInput.css" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -133,7 +129,7 @@
       <workItem from="1651020100731" duration="1437000" />
       <workItem from="1651179534587" duration="30605000" />
       <workItem from="1652863678539" duration="1831000" />
-      <workItem from="1653969680397" duration="58175000" />
+      <workItem from="1653969680397" duration="64526000" />
     </task>
     <servers />
   </component>
