@@ -95,6 +95,20 @@ class MyBlogModel extends Model
         return $record->save();
     }
 
+    public function editRecord($id, $title, $content)
+    {
+        $record = new Blog();
+        $record->title = $_POST['title'];
+        $record->content = $_POST['content'];
+        $fileUrl = trim($_FILES['imageFile']["name"]) ? $this->getBlogFileUrl($_FILES['imageFile']) : null;
+        if ($fileUrl != null)
+        {
+            $record->imageUrl = ('/'.$fileUrl);
+        }
+        $record->createdAt = date('y.m.d h:i:s');
+        return $record->save();
+    }
+
     private function getBlogFileUrl($file)
     {
         $serverFilePath = "public/img/blog/" . uniqid() . $file["name"];

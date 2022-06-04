@@ -46,28 +46,23 @@ class MyBlogController extends Controller
 
     public function editPublicationAction()
     {
-        $users = [
-            1 => [
-                'avatar_url' => '/examples/ajax/img-01.jpg',
-                'name' => 'Александр Мухин',
-                'email' => 'alexander@mail.ru',
-                'location' => 'Россия'
-            ],
-            2 => [
-                'avatar_url' => '/examples/ajax/img-02.jpg',
-                'name' => 'Евгений Смирнов',
-                'email' => 'evgeniy@gmail.com',
-                'location' => 'Украина'
-            ],
-            3 => [
-                'avatar_url' => '/examples/ajax/img-03.jpg',
-                'name' => 'Ольга Соколова',
-                'email' => 'olga@yandex.ru',
-                'location' => 'Россия'
-            ]
-        ];
+        $inputData = file_get_contents("php://input");
+        $data = json_decode($inputData, true);
+        $vars = [];
+        if (!empty($data)) {
+            $this->model->validateForm($data);
+            if ($this->model->validator->isSuccessfulValidation && $this->model->table->existsPublicationById($data["id"]))
+            {
+                if ($this->model->table->updateBlog($data["id"], $data["title"], $data["content"],
+                    $data["imageUrl"], $data["createdAt"]))
+                {
+                    $vars["data"] = $data;
+                }
+            }
+        }
 
-        echo json_encode($users);
+        $vars["model"] = $this->model;
+        echo json_encode($vars);
     }
 
     private function loadingCSV() {

@@ -56,18 +56,18 @@
                     <?php
                     $records = $vars->getRecords(5);
                     foreach ($records as $value):
-                    echo '<form method="post" enctype="application/json" action="../myBlog/editPublication" class="form text-about js-form-validate" id="editPublicationForm' . $value->id . '">';
+                    echo '<form method="post" enctype="multipart/form-data" action="../myBlog/editPublication" class="form text-about js-form-validate" id="editPublicationForm' . $value->id . '">';
                     echo '<div>';
                     echo '<div class="card">';
                     echo '<div class="card-header bg-success text-white d-flex justify-content-between" style="opacity: 80%">';
-                    echo '<div>' . $value->title . '</div>';
+                    echo '<div id="title'.$value->id .'">' . $value->title . '</div>';
                     echo '<div>' . $value->createdAt . '</div>';
                     echo '</div>';
                     echo '<div class="card-body">';
                     if (trim($value->imageUrl)) {
                         echo '<img src="' . $value->imageUrl . '" class="image-blog my-3 mx-auto d-block" alt="Картинки не существует">';
                     }
-                    echo '<p class="card-text">' . $value->content . '</p>';
+                    echo '<p id="content'.$value->id .'" class="card-text">' . $value->content . '</p>';
                     echo '</div>';
                     echo '<div class="d-flex justify-content-end py-3 px-3">
                     <a id="modal' . $value->id . '" type="button" data-bs-toggle="modal" data-bs-target="#editPublicationModal' . $value->id . '" class="myBlog-link text-decoration-none text-dark text-guestBook">Изменить публикацию</a>
@@ -99,18 +99,18 @@
                     <div class="modal-content">
                         <div class="modal-body">
                             <div class="some-form__line ">
-                                <input id="title" title="Пример: title" type="text" name="title" placeholder="Title *" value="<?php echo $value->title ?>" data-validate>
+                                <input id="inputTitle<?php echo $value->id; ?>" title="Пример: title" type="text" name="title" placeholder="Title *" value="<?php echo $value->title ?>" data-validate>
                                 <span class="some-form__hint-succesfull">Отлично</span>
                                 <span class="some-form__hint"></span>
                             </div>
                             <div class="some-form__line ">
-                                <textarea id="content" title="Пример: Да он крут!"  name="content" placeholder="Текст статьи *" data-validate rows="20"><?php echo $value->content ?></textarea>
+                                <textarea id="inputContent<?php echo $value->id; ?>" title="Пример: Да он крут!"  name="content" placeholder="Текст статьи *" data-validate rows="20"><?php echo $value->content ?></textarea>
                                 <span class="some-form__hint-succesfull">Отлично</span>
                                 <span class="some-form__hint"></span>
                             </div>
                         </div>
                         <div class="d-flex gap-3 pb-4 px-3 justify-content-center align-items-center">
-                            <input id="formSubmit" type="submit" value="Изменить"
+                            <input id="formSubmit<?php echo $value->id; ?>" type="submit"  value="Изменить"
                                    class="button button_submit button-wide">
                             <button type="button" class="button_submit inter-button-text button-wide"
                                     data-bs-dismiss="modal">Закрыть
@@ -124,6 +124,8 @@
                 $("#editPublicationForm<?php echo $value->id; ?>").submit(async function (event) {
                     event.preventDefault();
                     try {
+                        var titleInput = document.querySelector("#inputTitle<?php echo $value->id; ?>")
+                        var contentInput = document.querySelector("#inputContent<?php echo $value->id; ?>")
                         // использование метода fetch() для отправки асинхронного запроса на сервер
                         let response = await fetch(`../myBlog/editPublication`, {
                             method: 'POST',
@@ -131,15 +133,23 @@
                                 'Accept': 'application/json, text/plain, */*',
                                 'Content-Type': 'application/json'
                             },
-                            body: JSON.stringify({a: 7, str: 'Some string: &=&'})
+                            body: JSON.stringify({
+                                id: "<?php echo $value->id; ?>",
+                                title: titleInput.value,
+                                content: contentInput.value,
+                                imageUrl: "<?php echo $value->imageUrl; ?>",
+                                createdAt: "<?php echo $value->createdAt; ?>"
+                            })
                         });
                         if (response.ok) {
-                            // получаем ответ в формате JSON и сохраняем его в data
-                            let data = await response.json();
-                            // выполняем рендеринг полученных данных в элемент #result
-                            const count = data['count'];
-
-                        }
+                            // получаем ответ в формате JSON и сохраняем его в decode data
+                            let jsonData = await response.json();
+                            if (jsonData['data']) {
+                                $('#title<?php echo $value->id; ?>').text(jsonData["data"]["title"]);
+                                $('#content<?php echo $value->id; ?>').text(jsonData["data"]["content"]);
+                                $('#editPublicationModal<?php echo $value->id; ?>').modal('hide');
+                            }
+                       }
                     } catch (error) {
                         console.log(error);
                     }

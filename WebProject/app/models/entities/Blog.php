@@ -32,4 +32,14 @@ class Blog extends BaseActiveRecord
         $sql->bindParam(":createdAt", $this->createdAt);
         return $sql->execute();
     }
+
+    public function updateBlog($id, $title, $content, $imageUrl, $createdAt) {
+        $this->id = $id;
+        $this->title = $title;
+        $this->content = $content;
+        $this->imageUrl = $imageUrl;
+        $this->createdAt = $createdAt;
+
+        return parent::save();
+    }
 }

@@ -12,7 +12,7 @@ class BlogValidator extends FormValidator
 
     public $statements = [
         "content" => ["isNotEmpty"],
-        "title" => ["isNotEmpty", "isWord"],
+        "title" => ["isNotEmpty"],
         "imageFile" => ["NotRequired", "isImageFile"]
     ];
 

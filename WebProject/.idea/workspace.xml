@@ -7,15 +7,10 @@
     <list default="true" id="3db0ea4f-cab1-4488-90fa-5eb9d5d0757e" name="Changes" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/app/admin/controllers/MyBlogController.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/admin/controllers/MyBlogController.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/admin/lib/route.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/admin/lib/route.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/admin/models/MyBlogModel.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/admin/models/MyBlogModel.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/app/admin/views/MyBlogView.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/admin/views/MyBlogView.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/admin/views/TemplateView.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/admin/views/TemplateView.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/models/MyInterestsModel.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/models/MyInterestsModel.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/user/views/MyBlogView.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/user/views/MyBlogView.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/user/views/MyInterestsView.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/user/views/MyInterestsView.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/user/views/TemplateView.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/user/views/TemplateView.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/views/MyInterestsView.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/views/MyInterestsView.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/views/TemplateView.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/views/TemplateView.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/models/entities/Blog.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/models/entities/Blog.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/models/validators/BlogValidator.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/models/validators/BlogValidator.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/public/css/style.css" beforeDir="false" afterPath="$PROJECT_DIR$/public/css/style.css" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -130,6 +125,7 @@
       <workItem from="1651179534587" duration="30605000" />
       <workItem from="1652863678539" duration="1831000" />
       <workItem from="1653969680397" duration="64526000" />
+      <workItem from="1654344657652" duration="8153000" />
     </task>
     <servers />
   </component>
