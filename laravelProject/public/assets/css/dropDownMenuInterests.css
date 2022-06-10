@@ -1,0 +1,12 @@
+#dropMenuInterests { cursor: pointer; }
+
+#myDropdown {
+  display: none;
+  list-style-type: none;
+  position: absolute;
+}
+
+#clock {
+  right: 0;
+  position: fixed;
+}

@@ -1,25 +1,4 @@
 
-window.addEventListener("load", function(event) {
-  var items = localStorage.getItem('index');
-  var itemsSession = sessionStorage.getItem('index');
-  if (items == null)
-  {
-    localStorage.setItem('index', 1);
-  } else {
-    items++;
-    localStorage.setItem('index', items);
-  }
-  if (itemsSession == null)
-  {
-    sessionStorage.setItem('index', 1);
-  } else {
-    itemsSession++;
-    sessionStorage.setItem('index', itemsSession);
-  }
-});
-
-
-
 (function() {
 
     var width, height, largeHeader, canvas, ctx, points, target, animateHeader = true;

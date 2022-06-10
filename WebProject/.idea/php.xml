@@ -2,8 +2,7 @@
 <project version="4">
   <component name="PhpIncludePathManager">
     <include_path>
-      <path value="$APPLICATION_HOME_DIR$/phpInterp/php_win32_8.0.17" />
-      <path value="$PROJECT_DIR$/../../../MAMP/bin/perl" />
+      <path value="C:/php/pear" />
     </include_path>
   </component>
   <component name="PhpProjectSharedConfiguration" php_language_level="8.0" />

@@ -44,6 +44,7 @@ class AccountController extends Controller
                 $vars2["redirect"] = $this->addNewUser($array['name'], $array['login'], $array['email'], $array['password']);
             }
         }
+
         $vars2["model"] = $this->model;
         echo json_encode($vars2);
     }
