@@ -49,9 +49,19 @@ if (session_status() !== PHP_SESSION_ACTIVE) session_start();
                             <li class="nav-item">
                                 <a id="aboutMe" class="nav-link nav-color px-0" href="../aboutMe"><i class="fas fa-user"></i> Обо мне</a>
                             </li>
-                            <li class="nav-item">
-                                <a id="blog" class="nav-link nav-color px-0" href="../blog"><i class="fa-brands fa-microblog"></i> Мой блог</a>
-                            </li>
+                            @if (!isset($_SESSION['user']))
+                                <li class="nav-item">
+                                    <a id="blog" class="nav-link nav-color px-0" href="../blog"><i class="fa-brands fa-microblog"></i> Мой блог</a>
+                                </li>
+                            @elseif (isset($_SESSION['user']['isAdmin']) && $_SESSION['user']['isAdmin'])
+                                <li class="nav-item">
+                                    <a id="adminBlog" class="nav-link nav-color px-0" href="../admin/blog"><i class="fa-brands fa-microblog"></i> Мой блог</a>
+                                </li>
+                            @elseif (isset($_SESSION['user']) && (!isset($_SESSION['user']['isAdmin']) || $_SESSION['user']['isAdmin'] == 0))
+                                <li class="nav-item">
+                                    <a id="userBlog" class="nav-link nav-color px-0" href="../user/blog"><i class="fa-brands fa-microblog"></i> Мой блог</a>
+                                </li>
+                            @endif
                             <li class="nav-item">
                                 <a id="gallery" class="nav-link nav-color px-0" href="../gallery"><i class="far fa-images"></i> Фотоальбом</a>
                             </li>
@@ -94,23 +104,6 @@ if (session_status() !== PHP_SESSION_ACTIVE) session_start();
                         echo '</div>';
                     }
                     ?>
-{{--                    @auth--}}
-{{--                        <div class="d-flex align-items-center gap-3 authorization-nav">--}}
-{{--                        <span class="nav-font">{{ Auth::user()->name }}</span>--}}
-{{--                        <a class="navbar-brand" href="../logout">--}}
-{{--                        <span class="nav-font lazur-outline-btn">Выйти</span>--}}
-{{--                        </a>--}}
-{{--                        </div>--}}
-{{--                    @endauth--}}
-{{--                    @guest--}}
-{{--                        <div class="d-flex authorization-nav">--}}
-{{--                        <a class="navbar-brand" href="../login">--}}
-{{--                        <span class="nav-font lazur-outline-btn">Войти</span></a>--}}
-{{--                        <a class="navbar-brand" href="../register">--}}
-{{--                        <span class="nav-font lazur-outline-btn">Регистрация</span>--}}
-{{--                        </a>--}}
-{{--                        </div>--}}
-{{--                    @endguest--}}
                 </div>
             </div>
         </nav>

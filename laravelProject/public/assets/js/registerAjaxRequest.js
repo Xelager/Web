@@ -26,10 +26,10 @@ $("#registerForm").submit(function(event) {
         },
         error: function(errorData) {
             result = JSON.parse(errorData.responseText)
-            alertElement.style.display = "block";
             alertElement.textContent = "";
             if (result.errors.login)
             {
+                alertElement.style.display = "block";
                 alertElement.insertAdjacentHTML("afterbegin", "<div class='d-flex align-items-center gap-2'>" +
                     "<svg className=\"bi flex-shrink-0 me-2\" width=\"24\" height=\"24\" role=\"img\" aria-label=\"Danger:\">\n" +
                     "   <use xlink:href=\"#exclamation-triangle-fill\"/>\n" +
@@ -39,6 +39,7 @@ $("#registerForm").submit(function(event) {
             }
             if (result.errors.email)
             {
+                alertElement.style.display = "block";
                 alertElement.insertAdjacentHTML("afterbegin", "<div class='d-flex align-items-center gap-2'>" +
                     "<svg className=\"bi flex-shrink-0 me-2\" width=\"24\" height=\"24\" role=\"img\" aria-label=\"Danger:\">\n" +
                     "   <use xlink:href=\"#exclamation-triangle-fill\"/>\n" +
@@ -48,6 +49,7 @@ $("#registerForm").submit(function(event) {
             }
             if (result.errors.password)
             {
+                alertElement.style.display = "block";
                 alertElement.insertAdjacentHTML("afterbegin", "<div class='d-flex align-items-center gap-2'>" +
                     "<svg className=\"bi flex-shrink-0 me-2\" width=\"24\" height=\"24\" role=\"img\" aria-label=\"Danger:\">\n" +
                     "   <use xlink:href=\"#exclamation-triangle-fill\"/>\n" +

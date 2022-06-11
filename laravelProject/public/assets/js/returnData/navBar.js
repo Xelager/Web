@@ -1,1 +1,1 @@
-let routeArray = ["aboutMe", "blog", "gallery", "interests"];
+let routeArray = ["aboutMe", "blog", "gallery", "interests", "adminBlog", "userBlog"];

@@ -11,7 +11,7 @@ class AccountController extends Controller
 {
     public function login(Request $request)
     {
-        session_start();
+        if (session_status() !== PHP_SESSION_ACTIVE) session_start();
         ['login' => $login, 'password' => $password] = $_POST;
         $user = User::all()->where('login', $login)->where('password', md5($password))->first();
         if (!$user) {
@@ -25,7 +25,7 @@ class AccountController extends Controller
                 'login' => $user->login,
                 'password' => $user->password,
             ];
-            if (($_POST['login']=='admin@test.com') && (md5($_POST['password'])=='21232f297a57a5a743894a0e4a801fc3')) {
+            if (($_POST['login']=='admin') && (md5($_POST['password'])=='21232f297a57a5a743894a0e4a801fc3')) {
                 $_SESSION['user']['isAdmin'] = 1; }
 
             return view('home');
@@ -35,7 +35,6 @@ class AccountController extends Controller
 
     public function logout()
     {
-        session_start();
         session_destroy();
         return view('home');
     }

@@ -46,7 +46,6 @@ class MyBlogController extends Controller
 
     public function editPublicationAction()
     {
-        debug($_POST);
         $inputData = file_get_contents("php://input");
         $data = json_decode($inputData, true);
         $vars = [];
