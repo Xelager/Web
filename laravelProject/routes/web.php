@@ -55,17 +55,30 @@ if (!isset($_SESSION['user']))
 // ================ User ================
 if (isset($_SESSION['user']) && (!isset($_SESSION['user']['isAdmin']) || $_SESSION['user']['isAdmin'] == 0)) {
     Route::get('/user/blog', function () {
-        $publications = DB::table('blogs')->orderBy('createdAt', 'desc')->paginate(5);
+        $publications = DB::table('blogs')->orderBy('createdAt', 'desc')->paginate(env("MAX_PAGINATE"));
         Paginator::useBootstrap();
         return view("/user/userBlog", compact('publications'));
     })->name('userBlog');
+
+    Route::get('/user/comments', function () {
+        $publications = DB::table('blogs')->orderBy('createdAt', 'desc')->paginate(env("MAX_PAGINATE"));
+        Paginator::useBootstrap();
+        return view("/user/comments", compact('publications'));
+    })->name('commentsBlog');
+
+    Route::get('/user/testBlog', function () {
+        $publications = DB::table('blogs')->orderBy('createdAt', 'desc')->paginate(env("MAX_PAGINATE"));
+        Paginator::useBootstrap();
+        return view("/user/testBlog", compact('publications'));
+    })->name('testBlog');
+
     Route::post('/user/blog/addComment', [BlogController::class, 'addComment']);
 }
 
     // ================ Admin ================
 if (isset($_SESSION['user']['isAdmin']) && $_SESSION['user']['isAdmin']) {
     Route::get('/admin/blog', function () {
-        $publications = DB::table('blogs')->orderBy('createdAt', 'desc')->paginate(5);
+        $publications = DB::table('blogs')->orderBy('createdAt', 'desc')->paginate(env("MAX_PAGINATE"));
         Paginator::useBootstrap();
         return view("/admin/adminBlog", compact('publications'));
     })->name('adminBlog');

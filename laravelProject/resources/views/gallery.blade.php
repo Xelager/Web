@@ -18,7 +18,28 @@
         </div>
     </div>
     <div class="mx-3 my-5 py-5">
-        <script>let bigPhoto = document.getElementById("bigPhoto");</script>
+
+        <script>
+            let bigPhoto = document.getElementById("bigPhoto");
+            document.querySelector("#left-arrow").addEventListener('click', (event) => {
+                if (Number(bigPhoto.title) - 1 >= 0)
+                {
+                    var popupElement = document.getElementById((Number(bigPhoto.title) - 1).toString());
+                    bigPhoto.src = popupElement.src;
+                    bigPhoto.title = popupElement.id;
+                    bigPhoto.alt = popupElement.alt;
+                }
+            });
+            document.querySelector("#right-arrow").addEventListener('click', (event) => {
+                if (Number(bigPhoto.title) + 1 < Number(<?php echo count($gallery->getPhoto());?>))
+                {
+                    var popupElement = document.getElementById((Number(bigPhoto.title) + 1).toString());
+                    bigPhoto.src = popupElement.src;
+                    bigPhoto.title = popupElement.id;
+                    bigPhoto.alt = popupElement.alt;
+                }
+            });
+        </script>
         <?php
         $count = 0;
         $elemsOnLine = 5;

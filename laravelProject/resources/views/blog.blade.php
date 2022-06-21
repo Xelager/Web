@@ -29,7 +29,6 @@
                 </div>
 
                 <div class="d-flex justify-content-center my-3">
-
                         {{$publications->links('pagination::bootstrap-4') }}
                 </div>
             </div>

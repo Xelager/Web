@@ -16,7 +16,7 @@ class BlogController extends Controller
 {
     public function show()
     {
-        $publications = DB::table('blogs')->orderBy('createdAt', 'desc')->paginate(5);
+        $publications = DB::table('blogs')->orderBy('createdAt', 'desc')->paginate(env("MAX_PAGINATE"));
         Paginator::useBootstrap();
         return view("blog", compact('publications'));
     }
@@ -54,7 +54,7 @@ class BlogController extends Controller
 
     public function loadBlogCSV()
     {
-        $publications = DB::table('blogs')->orderBy('createdAt', 'desc')->paginate(5);
+        $publications = DB::table('blogs')->orderBy('createdAt', 'desc')->paginate(env("MAX_PAGINATE"));
         Paginator::useBootstrap();
         $file = $_FILES['csvFile']['tmp_name'];
         if (!trim($file))
@@ -101,7 +101,7 @@ class BlogController extends Controller
         }
 
         $text = "Форма успешно отправлена";
-        $publications = DB::table('blogs')->orderBy('createdAt', 'desc')->paginate(5);
+        $publications = DB::table('blogs')->orderBy('createdAt', 'desc')->paginate(env("MAX_PAGINATE"));
         Paginator::useBootstrap();
         return redirect("../admin/blog")->with(compact('publications'));
     }

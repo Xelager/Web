@@ -1,10 +1,27 @@
-@extends('template')
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+    <link href="https://site-assets.fontawesome.com/releases/v6.0.0/css/all.css" rel="stylesheet" type="text/css" />
+    <link href="{{ asset('assets/css/app.css') }}" rel="stylesheet">
+    <link href="{{ asset('assets/css/dropDownMenuInterests.css') }}" rel="stylesheet">
+    <link href="{{ asset('assets/css/validInput.css') }}" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/normalize/5.0.0/normalize.min.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Amatic+SC:wght@700&family=Gemunu+Libre:wght@700&family=Inter:wght@500;600;700&family=Open+Sans:ital,wght@1,500;1,600&display=swap" rel="stylesheet">
+    <svg xmlns="http://www.w3.org/2000/svg" style="display: none;">
+        <symbol id="exclamation-triangle-fill" fill="currentColor" viewBox="0 0 16 16">
+            <path d="M8.982 1.566a1.13 1.13 0 0 0-1.96 0L.165 13.233c-.457.778.091 1.767.98 1.767h13.713c.889 0 1.438-.99.98-1.767L8.982 1.566zM8 5c.535 0 .954.462.9.995l-.35 3.507a.552.552 0 0 1-1.1 0L7.1 5.995A.905.905 0 0 1 8 5zm.002 6a1 1 0 1 1 0 2 1 1 0 0 1 0-2z"/>
+        </symbol>
+    </svg>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+    <script src='https://cdnjs.cloudflare.com/ajax/libs/jquery.inputmask/3.3.4/inputmask/inputmask.min.js'></script>
+    <script src='https://cdnjs.cloudflare.com/ajax/libs/jquery.inputmask/3.3.4/inputmask/jquery.inputmask.min.js'></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" crossorigin="anonymous"></script>
+</head>
 
-@section('title')
-    Блог
-@endsection
-
-@section('main-content')<div class="d-flex flex-column mx-5 border-common justify-content-center">
+<div class="d-flex flex-column mx-5 border-common justify-content-center">
     <div class="some-form">
         <div class="form text-about js-form-validate">
             <h1 class="card-title d-flex text-about-header justify-content-center mt-0 mb-3">Мой блог</h1>
@@ -118,23 +135,6 @@
         </script>
         <?php endforeach; ?>
     </div>
-    <button id="iframeload">Load Iframe</button>
-    <div id="iframe_content">
-        <iframe name="abc_frame" width="500" height="800" id="abc_frame" src="about:blank"></iframe>
-    </div>
-        <script type="text/javascript">
-            $( document ).ready(function() {
-                $('#iframeload').on('click',function(event){
-                    event.preventDefault();
-                    event.stopImmediatePropagation();
-
-                    var url = '../user/blog?page=2';
-
-                    $('#abc_frame').attr('src', url);
-                });
-
-            });
-    </script>
     <div class="d-flex justify-content-center my-3">
         {{$publications->links('pagination::bootstrap-4') }}
     </div>
@@ -142,4 +142,3 @@
 </div>
 </div>
 </div>
-@endsection
